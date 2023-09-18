@@ -1,5 +1,15 @@
 import:
-  - /home/benallen/.config/alacritty/themes/themes/gruvbox_dark.yaml
+  - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
+# - ~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.yaml
+# - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
+# - ~/.config/alacritty/themes/themes/gruvbox_light.yaml
+# - ~/.config/alacritty/themes/themes/gruvbox_material_medium_light.yaml
+# - ~/.config/alacritty/themes/themes/monokai_pro.yaml
+# - ~/.config/alacritty/themes/themes/nightfox.yaml
+# - ~/.config/alacritty/themes/themes/nord.yaml
+# - ~/.config/alacritty/themes/themes/oceanic_next.yaml
+# - ~/.config/alacritty/themes/themes/one_dark.yaml
+# - ~/.config/alacritty/themes/themes/remedy_dark.yaml
 
 font:
   normal:
@@ -18,11 +28,11 @@ font:
     family: NotoMono Nerd Font Mono
     style: Bold Italic
 
-  size: 12
+  size: 20
 
 window:
   opacity: 0.9
   padding:
-    x: 1
+    x: 4
     y: 4
   dynamic_padding: true

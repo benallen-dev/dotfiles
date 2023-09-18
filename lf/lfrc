@@ -1,6 +1,3 @@
-map . set hidden!
-set drawbox
-
 # interpreter for shell commands
 set shell sh
 
@@ -110,3 +107,7 @@ cmd zip ${{
     rm -rf $1
 }}
 
+map . set hidden!
+
+set icons true
+set drawbox true
