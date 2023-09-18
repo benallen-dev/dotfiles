@@ -28,7 +28,7 @@ font:
     family: NotoMono Nerd Font Mono
     style: Bold Italic
 
-  size: 20
+  size: 12
 
 window:
   opacity: 0.9
