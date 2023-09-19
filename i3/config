@@ -217,7 +217,7 @@ bindsym $mod+Ctrl+backslash exec --no-startup-id maim | xclip -selection clipboa
 bindsym $mod+Ctrl+Shift+backslash exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 # Streamdeck
-exec_always --no-startup-id ~/.local/bin/streamdeck -n
+exec --no-startup-id ~/.local/bin/streamdeck -n
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
