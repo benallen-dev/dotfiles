@@ -1,0 +1,7 @@
+[user]
+	email = ben@benallen.dev
+	name = Ben Allen
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true

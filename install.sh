@@ -2,6 +2,7 @@
 
 # If they exist, back up existing dotfile directories
 mv ~/.config/alacritty ~/.config/alacritty.bak 2>/dev/null || true
+mv ~/.config/git ~/.config/git.bak 2>/dev/null || true
 mv ~/.config/i3 ~/.config/i3.bak 2>/dev/null || true
 mv ~/.config/lf ~/.config/lf.bak 2>/dev/null || true
 mv ~/.config/neofetch ~/.config/neofetch.bak 2>/dev/null || true
@@ -11,6 +12,7 @@ mv ~/.config/tmux ~/.config/tmux.bak 2>/dev/null || true
 
 # Create symlinks to dotfiles
 ln -s -n ~/.dotfiles/alacritty ~/.config/alacritty
+ln -s -n ~/.dotfiles/git ~/.config/git
 ln -s -n ~/.dotfiles/i3 ~/.config/i3
 ln -s -n ~/.dotfiles/lf ~/.config/lf
 ln -s -n ~/.dotfiles/neofetch ~/.config/neofetch
