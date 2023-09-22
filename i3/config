@@ -216,6 +216,9 @@ bindsym $mod+Shift+backslash exec --no-startup-id maim --window $(xdotool getact
 bindsym $mod+Ctrl+backslash exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym $mod+Ctrl+Shift+backslash exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
+# Snipping tool
+bindsym $mod+Shift+s exec --no-startup-id ksnip -r
+
 # Streamdeck
 exec --no-startup-id ~/.local/bin/streamdeck -n
 
