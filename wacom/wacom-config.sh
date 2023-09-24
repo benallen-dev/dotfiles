@@ -28,4 +28,4 @@ fi
 # configure the buttons on ${stylus} with your xsetwacom commands...
 xsetwacom set ${stylus} Button 2 "pan"
 xsetwacom set ${stylus} "PanScrollThreshold" 150
-
+xsetwacom set ${stylus} Rotate half

@@ -224,3 +224,6 @@ exec --no-startup-id ~/.local/bin/streamdeck -n
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Initial setup for wacom tablet (udev rules only run after plugging in)
+exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
