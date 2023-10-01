@@ -1,7 +1,7 @@
 local prettier = require("prettier")
 
 prettier.setup({
-	bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+	bin = 'prettierd', -- or `'prettier'` (v0.23.3+)
 	cli_options = {
 		use_tabs = true,
 		jsx_single_quote = true,
