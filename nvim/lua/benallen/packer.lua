@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
 	-- Git interaction
 	use("tpope/vim-fugitive")
 
+	-- LSP
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',

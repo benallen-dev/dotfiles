@@ -24,4 +24,4 @@ prettier.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>p", vim.cmd.Prettier)
+vim.keymap.set("n", "<leader>P", vim.cmd.Prettier)

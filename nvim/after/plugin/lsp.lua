@@ -9,6 +9,15 @@ end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+lsp.set_preferences({
+	sign_icons = {
+		error = 'E',
+		warn = 'W',
+		hint = 'H',
+		info = 'I'
+	}
+})
+
 lsp.on_attach(function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
@@ -26,9 +35,12 @@ lsp.on_attach(function(_, bufnr)
 
 	-- These are mine
 	vim.keymap.set("n", "<leader>lf", function()
+		print("Formatting...")
 		vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+		print("Formatted")
 	end, opts)
-	vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float(0, {scope="line"}) end, opts)
+
+	vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float(0, { scope = "line" }) end, opts)
 end)
 
 lsp.setup()
