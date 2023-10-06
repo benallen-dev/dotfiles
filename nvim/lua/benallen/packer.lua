@@ -73,4 +73,7 @@ return require('packer').startup(function(use)
 
 	-- Discord rich presence
 	use('andweeb/presence.nvim')
+
+	-- GitSigns
+	use('lewis6991/gitsigns.nvim')
 end)
