@@ -1,7 +1,7 @@
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	view = {
-		width = 30,
+		width = 45,
 	},
 	renderer = {
 		root_folder_label = false,
@@ -71,7 +71,6 @@ require("nvim-tree").setup({
 		git_ignored = false,
 		custom = {
 			"^\\.git$",
-			"^node_modules$",
 		}
 	},
 })
