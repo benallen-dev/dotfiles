@@ -35,8 +35,8 @@ return require('packer').startup(function(use)
 		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{ 'neovim/nvim-lspconfig' },  -- Required
-			{ 'williamboman/mason.nvim' }, -- Optional
+			{ 'neovim/nvim-lspconfig' },    -- Required
+			{ 'williamboman/mason.nvim' },  -- Optional
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
@@ -68,12 +68,18 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use {
+		'laytan/tailwind-sorter.nvim',
+		requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+		run = 'cd formatter && npm i && npm run build',
+	}
+
 	-- Github Copilot
 	use('github/copilot.vim')
 
 	-- Discord rich presence
 	use('andweeb/presence.nvim')
 
-	-- GitSigns
+	-- GitSigns (show git changes in the gutter)
 	use('lewis6991/gitsigns.nvim')
 end)
