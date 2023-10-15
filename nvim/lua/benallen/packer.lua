@@ -82,4 +82,7 @@ return require('packer').startup(function(use)
 
 	-- GitSigns (show git changes in the gutter)
 	use('lewis6991/gitsigns.nvim')
+
+	-- Toggle comments
+	use('tpope/vim-commentary')
 end)
