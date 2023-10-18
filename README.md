@@ -1,5 +1,9 @@
 # Dotfiles
 
+## Prerequisites
+
+1. [https://github.com/junegunn/fzf](FZF - Command-line fuzzy finder)
+
 ## Installation
 
 1. Clone this repo into `.dotfiles`.
