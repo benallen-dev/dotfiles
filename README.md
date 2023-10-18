@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1. [https://github.com/junegunn/fzf](FZF - Command-line fuzzy finder)
+1. [FZF - Command-line fuzzy finder](https://github.com/junegunn/fzf)
 
 ## Installation
 
