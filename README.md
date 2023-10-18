@@ -25,5 +25,10 @@
 ### Submodules
 - alacritty/themes refers to https://github.com/alacritty/alacritty-theme
 
+### Command-line tools
+- **fd** Change directory with fzf
+- **fda** As above, but including hidden directories
+- **fp** Change directory into predetermined shortlist of project directories
+
 ### Special guest
 - wacom, contains persistent config for One by Wacom tablet I have and is not copied into ~/.config by `install.sh`
