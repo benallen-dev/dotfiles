@@ -18,20 +18,26 @@ fda() {
 
 # Custom stuff
 
+local dirs=( \
+	"~/.dotfiles/" \
+	"~/projects/benallen-dot-dev/" \
+	"~/projects/artifact-deployer/" \
+	"~/projects/htmx/" \
+	"~/projects/kata-machine/" \
+)
 #fp (find project) - cd to predetermined list of project dirs
 # TODO: just list all subdirs instead of manually having to specify everything
 fp() {
-	local dirs=( \
-		"~/projects/" \
-		"~/projects/benallen-dot-dev/" \
-		"~/projects/artifact-deployer/" \
-		"~/projects/htmx/" \
-		"~/projects/kata-machine/" \
-		"~/www/" \
-	)
 	local dir
 
-	# printf '%s\n' "${dirs[@]}"
-	dir=$( printf '%s\n' "${dirs[@]}" | fzf) 
+	dir=$( printf '%s\n' "${dirs[@]}" | fzf -q "$1")
 	cd ${dir//\~//home/benallen}
+}
+
+# the same as fp, but opens in nvim
+nvimf() {
+	local dir
+
+	dir=$( printf '%s\n' "${dirs[@]}" | fzf -q "$1")
+	nvim ${dir//\~//home/benallen}
 }
