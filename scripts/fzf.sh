@@ -20,8 +20,9 @@ fda() {
 
 local dirs=( \
 	"~/.dotfiles/" \
-	"~/projects/benallen-dot-dev/" \
 	"~/projects/artifact-deployer/" \
+	"~/projects/benallen-dot-dev/" \
+	"~/projects/discord-notifier/" \
 	"~/projects/htmx/" \
 	"~/projects/kata-machine/" \
 )
