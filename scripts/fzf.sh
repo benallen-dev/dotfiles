@@ -18,21 +18,26 @@ fda() {
 
 # Custom stuff
 
-local dirs=( \
-	"~/.dotfiles/" \
-	"~/projects/artifact-deployer/" \
-	"~/projects/benallen-dot-dev/" \
-	"~/projects/discord-notifier/" \
-	"~/projects/htmx/" \
-	"~/projects/kata-machine/" \
-)
+# If fzf-paths.sh exists, source it. If not, fall back to defaults
+#
+# This file is expected to provide two configs:
+#
+# dirs - a list of directories to search
+# home - the home directory to replace ~ with
+
+if [ -f "./fzf.conf" ]; then
+	source ./fzf.conf
+else
+	source ./fzf.conf.default
+fi
+
 #fp (find project) - cd to predetermined list of project dirs
-# TODO: just list all subdirs instead of manually having to specify everything
 fp() {
 	local dir
 
 	dir=$( printf '%s\n' "${dirs[@]}" | fzf -q "$1")
-	cd ${dir//\~//home/benallen}
+
+	cd ${dir//\~/$home}
 }
 
 # the same as fp, but opens in nvim
@@ -40,5 +45,5 @@ nvimf() {
 	local dir
 
 	dir=$( printf '%s\n' "${dirs[@]}" | fzf -q "$1")
-	nvim ${dir//\~//home/benallen}
+	nvim ${dir//\~/$home}
 }

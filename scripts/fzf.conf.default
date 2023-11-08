@@ -1,0 +1,11 @@
+local home="/home/benallen"
+
+local dirs=( \
+	"DEFAULT" \
+	"~/.dotfiles/" \
+	"~/projects/artifact-deployer/" \
+	"~/projects/benallen-dot-dev/" \
+	"~/projects/discord-notifier/" \
+	"~/projects/htmx/" \
+	"~/projects/kata-machine/" \
+)

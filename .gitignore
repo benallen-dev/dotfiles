@@ -1,1 +1,5 @@
+# Neovim compiled plugin file
 nvim/plugin/packer_compiled.lua
+
+# Script config customisation is kept in .conf files
+scripts/*.conf
