@@ -1,7 +1,6 @@
 local home="/home/benallen"
 
 local dirs=( \
-	"DEFAULT" \
 	"~/.dotfiles/" \
 	"~/projects/artifact-deployer/" \
 	"~/projects/benallen-dot-dev/" \

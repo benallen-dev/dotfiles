@@ -24,11 +24,10 @@ fda() {
 #
 # dirs - a list of directories to search
 # home - the home directory to replace ~ with
-
-if [ -f "./fzf.conf" ]; then
-	source ./fzf.conf
+if [ -f "$HOME/.dotfiles/scripts/fzf.conf" ]; then
+	source $HOME/.dotfiles/scripts/fzf.conf
 else
-	source ./fzf.conf.default
+	source $HOME/.dotfiles/scripts/fzf.conf.default
 fi
 
 #fp (find project) - cd to predetermined list of project dirs
