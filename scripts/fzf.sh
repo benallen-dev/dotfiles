@@ -35,7 +35,6 @@ fp() {
 	local dir
 
 	dir=$( printf '%s\n' "${dirs[@]}" | fzf -q "$1")
-
 	cd ${dir//\~/$home}
 }
 
