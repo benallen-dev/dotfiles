@@ -35,3 +35,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Reset search highlight
 vim.keymap.set("n", "<leader>/", ":let @/ = \"\"<CR>")
 
+-- Comment out lines
+vim.keymap.set({"n","v"}, "<C-_>", ":Commentary<CR>")
