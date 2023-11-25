@@ -84,4 +84,7 @@ return require('packer').startup(function(use)
 
 	-- Toggle comments
 	use('tpope/vim-commentary')
+
+	-- Go templ support
+	use('tjdevries/templ.nvim')
 end)

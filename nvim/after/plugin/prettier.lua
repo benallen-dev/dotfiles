@@ -21,6 +21,7 @@ prettier.setup({
 		"typescript",
 		"typescriptreact",
 		"yaml",
+		"templ",
 	},
 })
 
