@@ -37,3 +37,7 @@ vim.keymap.set("n", "<leader>/", ":let @/ = \"\"<CR>")
 
 -- Comment out lines
 vim.keymap.set({"n","v"}, "<C-_>", ":Commentary<CR>")
+
+-- Go error handling that I just stole from ThePrimeagen
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<ESC>Oreturn err<ESC>")
+
