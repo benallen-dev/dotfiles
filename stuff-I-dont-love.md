@@ -1,3 +1,0 @@
-- Can't press TAB to accept suggestions in vim
-- Discord integration plugin is fun but not necessary
-- Tmux can be streamlined, I do `new session - navigate - open vim in pane` often
