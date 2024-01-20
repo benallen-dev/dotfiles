@@ -23,3 +23,5 @@ vim.opt.wrap = false
 
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
+
+vim.opt.colorcolumn = "80"
