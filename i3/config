@@ -219,8 +219,8 @@ bindsym $mod+r mode "resize"
 # 	font pango:monospace 12
 # }
 
-gaps inner 50
-gaps outer -20
+gaps inner 30
+gaps outer -10
 
 # Random wallpaper button
 bindsym $mod+Shift+w exec --no-startup-id feh --bg-scale $(shuf -e -n1 $HOME/Pictures/wallpaper/*)
