@@ -1,0 +1,28 @@
+import = ["/home/benallen/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+
+[font]
+size = 12
+
+[font.bold]
+family = "NotoMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "NotoMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "NotoMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "NotoMono Nerd Font Mono"
+style = "Regular"
+
+[window]
+dynamic_padding = true
+opacity = 0.9
+
+[window.padding]
+x = 4
+y = 4
