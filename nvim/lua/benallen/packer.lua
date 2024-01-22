@@ -87,4 +87,7 @@ return require('packer').startup(function(use)
 
 	-- Go templ support
 	use('tjdevries/templ.nvim')
+
+	-- treesitter-context
+	use('nvim-treesitter/nvim-treesitter-context')
 end)

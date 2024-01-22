@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- I am so tired of W not being an editor command
+vim.cmd("command W write")
+
 -- Delete into system clipboard
 vim.keymap.set("n", "<leader>d", "\"+d")
 
