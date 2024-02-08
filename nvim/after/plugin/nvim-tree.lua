@@ -2,7 +2,7 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	actions = {
 		open_file = {
-			quit_on_open = true,
+			quit_on_open = false,
 		}
 	},
 	view = {

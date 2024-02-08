@@ -6,8 +6,14 @@ lsp.on_attach(function(_, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
 end)
 
+local lspconfig = require('lspconfig')
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+
+-- Add templ to tailwind lsp filetype list
+lspconfig.tailwindcss.setup({
+	filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" }
+})
 
 lsp.set_preferences({
 	sign_icons = {
