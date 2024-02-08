@@ -1,4 +1,4 @@
-import = ["/home/benallen/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
 size = 12
