@@ -9,8 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set screen layout (would be better if this happened before i3 starts)
+exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
+
 # Load background first-thing to minimise flicker
-exec --no-startup-id feh --bg-scale /usr/share/sddm/themes/chili/assets/background.jpg
+exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.jpg
 
 # Load the picom compositor for fancy transparency effects
 exec --no-startup-id picom -b
@@ -138,6 +141,18 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Assign workspaces to outputs
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-0
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
+workspace $ws10 output DP-0
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -248,3 +263,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Initial setup for wacom tablet (udev rules only run after plugging in)
 exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
+
+# Set the wallpapaer again because xrandr may not have gotten things set up yet
+exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.jpg
