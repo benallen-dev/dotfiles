@@ -147,11 +147,11 @@ workspace $ws2 output HDMI-0
 workspace $ws3 output HDMI-0
 workspace $ws4 output HDMI-0
 workspace $ws5 output HDMI-0
-workspace $ws6 output DP-0
-workspace $ws7 output DP-0
-workspace $ws8 output DP-0
-workspace $ws9 output DP-0
-workspace $ws10 output DP-0
+workspace $ws6 output DP-4
+workspace $ws7 output DP-4
+workspace $ws8 output DP-4
+workspace $ws9 output DP-4
+workspace $ws10 output DP-4
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
