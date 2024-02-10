@@ -20,15 +20,29 @@ fda() {
 
 # If fzf-paths.sh exists, source it. If not, fall back to defaults
 #
-# This file is expected to provide two configs:
+# This file is expected to provide three configs:
 #
-# dirs - a list of directories to search
 # home - the home directory to replace ~ with
+# dirs - a list of directories to search
+# parents - a list of directories to search for children
 if [ -f "$HOME/.dotfiles/scripts/fzf.conf" ]; then
 	source $HOME/.dotfiles/scripts/fzf.conf
 else
 	source $HOME/.dotfiles/scripts/fzf.conf.default
 fi
+
+# Add everything under parents to the dirs list
+for parent in $parents; do
+	children=$(find $(eval echo $parent) -maxdepth 1 -type d)
+
+	# Without IFS it treats children as a single string
+	while IFS= read -r line; do
+		# Replace $HOME with ~
+		dirs+=${line/$HOME/\~}
+	done <<< "$children"
+
+	unset IFS
+done
 
 #fp (find project) - cd to predetermined list of project dirs
 fp() {
