@@ -1,19 +1,19 @@
 import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
-size = 12
+size = 18
 
 [font.bold]
 family = "NotoSansM Nerd Font Mono"
 style = "SemiBold"
 
 [font.bold_italic]
-family = "ComicShannsMono Nerd Font Mono"
-style = "Bold"
+family = "Cascadia Code PL"
+style = "Italic"
 
 [font.italic]
-family = "ComicShannsMono Nerd Font Mono"
-style = "Regular"
+family = "Cascadia Code PL"
+style = "Light Italic"
 
 [font.normal]
 family = "NotoMono Nerd Font Mono"
