@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set screen layout (would be better if this happened before i3 starts)
-exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
+# exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
 
 # Load background first-thing to minimise flicker
 exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.jpg
@@ -204,6 +204,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# fix monitor layout
+bindsym $mod+Shift+m exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -258,11 +261,14 @@ bindsym $mod+Shift+s exec --no-startup-id ksnip -r
 # Streamdeck
 exec --no-startup-id ~/.local/bin/streamdeck -n
 
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # Initial setup for wacom tablet (udev rules only run after plugging in)
 exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
 
+# Monitor setup
+exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
+
 # Set the wallpapaer again because xrandr may not have gotten things set up yet
 exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.jpg
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

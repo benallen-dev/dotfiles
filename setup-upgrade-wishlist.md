@@ -2,6 +2,7 @@
 
 ## Things that bug me
 - Can't press TAB to accept suggestions in vim
+- yanking should also copy into system clipboard
 
 ## Things that maybe should go
 - Discord integration plugin is fun but not necessary
