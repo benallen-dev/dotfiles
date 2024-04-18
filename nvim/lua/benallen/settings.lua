@@ -4,12 +4,15 @@ vim.opt.relativenumber = true
 
 vim.opt.termguicolors = true
 
+vim.g.have_nerd_font = true
+
 vim.opt.list = true
 vim.opt.listchars = {
 	-- eol = "󰌑",
 	tab = " ",
 	trail = "",
-	lead = "",
+	-- lead = "",
+	lead = " ",
 	extends = "",
 	precedes = "",
 }
