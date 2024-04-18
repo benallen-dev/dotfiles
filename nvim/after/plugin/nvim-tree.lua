@@ -1,7 +1,7 @@
 local gwidth = vim.api.nvim_list_uis()[1].width
 local gheight = vim.api.nvim_list_uis()[1].height
-local width = 80
-local height = 20
+local width = math.floor(gwidth * 0.8)
+local height = math.floor(gheight * 0.8)
 
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -11,7 +11,7 @@ require("nvim-tree").setup({
 		}
 	},
 	view = {
-		width = width,
+		relativenumber = true,
 		float = {
 			enable = true,
 			open_win_config = {
@@ -95,5 +95,5 @@ require("nvim-tree").setup({
 	},
 })
 
-vim.keymap.set("n", "<C-b>", vim.cmd.NvimTreeToggle)
-vim.keymap.set("n", "<leader>b", vim.cmd.NvimTreeFocus)
+vim.keymap.set("n", "<C-b>", vim.cmd.NvimTreeFocus)
+vim.keymap.set("n", "<leader>b", vim.cmd.NvimTreeToggle)
