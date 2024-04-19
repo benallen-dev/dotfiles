@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- Status updates for LSP
+	use('j-hui/fidget.nvim')
+
 	-- nvim-tree and icons
 	use('nvim-tree/nvim-tree.lua')
 	use('nvim-tree/nvim-web-devicons')
