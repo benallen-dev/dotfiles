@@ -1,21 +1,5 @@
 # Adds a couple of handy-dandy commands that use fzf
 
-# From https://github.com/junegunn/fzf/wiki/examples#changing-directory
-
-# fd - cd to selected directory
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# fda - including hidden directories
-fda() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
 # Custom stuff
 
 # If fzf-paths.sh exists, source it. If not, fall back to defaults
