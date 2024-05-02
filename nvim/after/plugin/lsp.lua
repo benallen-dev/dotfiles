@@ -46,6 +46,7 @@ lsp.on_attach(function(_, bufnr)
 		print("Formatted")
 	end, opts)
 
+	vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references)
 	vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float(0, { scope = "line" }) end, opts)
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 end)
