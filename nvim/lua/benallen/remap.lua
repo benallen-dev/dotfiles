@@ -41,3 +41,6 @@ vim.keymap.set({"n","v"}, "<C-_>", ":Commentary<CR>")
 -- Go error handling that I just stole from ThePrimeagen
 vim.keymap.set("n", "<leader>ee", "Oif err != nil {<CR>}<ESC>Oreturn err<ESC>")
 
+-- Easier way of exiting insert mode
+vim.keymap.set("i", "<C-j>", "<ESC>")
+

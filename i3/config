@@ -259,7 +259,7 @@ bindsym $mod+Ctrl+Shift+backslash exec --no-startup-id maim --window $(xdotool g
 bindsym $mod+Shift+s exec --no-startup-id ksnip -r
 
 # Streamdeck
-exec --no-startup-id ~/.local/bin/streamdeck -n
+exec_always --no-startup-id streamdeck -n
 
 # Initial setup for wacom tablet (udev rules only run after plugging in)
 exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
