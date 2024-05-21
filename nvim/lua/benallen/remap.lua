@@ -1,15 +1,10 @@
 vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- I am so tired of W not being an editor command
-vim.cmd("command W write")
-
 -- Delete into system clipboard
 vim.keymap.set("n", "<leader>d", "\"+d")
 
-
 -- Sick primeagen mappings --
-
 -- Move selected line / block of text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -43,4 +38,3 @@ vim.keymap.set("n", "<leader>ee", "Oif err != nil {<CR>}<ESC>Oreturn err<ESC>")
 
 -- Easier way of exiting insert mode
 vim.keymap.set("i", "<C-j>", "<ESC>")
-

@@ -19,6 +19,12 @@ return require('packer').startup(function(use)
 		end
 	})
 
+	use({'ricardoraposo/gruvbox-minor.nvim',
+		config = function()
+			vim.cmd('colorscheme gruvbox-minor')
+		end
+	})
+
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 	use('theprimeagen/harpoon')
@@ -42,6 +48,9 @@ return require('packer').startup(function(use)
 			{ 'hrsh7th/nvim-cmp' }, -- Required
 			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
 			{ 'L3MON4D3/LuaSnip' }, -- Required
+
+			-- LSP sources
+			{ 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
 		}
 	}
 
@@ -51,6 +60,9 @@ return require('packer').startup(function(use)
 	-- nvim-tree and icons
 	use('nvim-tree/nvim-tree.lua')
 	use('nvim-tree/nvim-web-devicons')
+
+	-- Oil.nvim
+	use('stevearc/oil.nvim')
 
 	-- Inline colour previews
 	use('NvChad/nvim-colorizer.lua')
