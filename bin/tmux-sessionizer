@@ -3,8 +3,8 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	foo=$(find ~/projects -mindepth 1 -maxdepth 1 -type d)
-	foo+="\n$HOME/.dotfiles"
+	foo=$(find ~/projects ~/codecrafters ~/anwb -mindepth 1 -maxdepth 1 -type d)
+	foo+="\n$HOME/.dotfiles\n$HOME/scratch"
 	selected=$(echo -e $foo | fzf)
 fi
 

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo $(cat ~/.zsh_history | awk -F';' '{print $2}' | awk '!seen[$0]++' | fzf)
