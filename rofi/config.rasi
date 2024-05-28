@@ -1,0 +1,35 @@
+configuration {
+	font: "mono 16";
+	case-sensitive: false;
+	show-icons: true;
+	modes: "window,drun,run,ssh";
+	fixed-num-lines: true;
+	window-thumbnail: true;
+
+	/*	filter: ;*/
+
+	timeout {
+		action: "kb-cancel";
+		delay:  0;
+	}
+
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+
+@theme "gruvbox-dark-soft"
+
+window, mainbox {
+	border-radius: 0.2em;
+}
+
+element-icon {
+	size: 1em;
+	padding: 0.2em;
+}
+
+element-text {
+	vertical-align: 0.5;
+}
