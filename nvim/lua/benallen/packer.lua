@@ -19,11 +19,11 @@ return require('packer').startup(function(use)
 		end
 	})
 
-	use({'ricardoraposo/gruvbox-minor.nvim',
-		config = function()
-			vim.cmd('colorscheme gruvbox-minor')
-		end
-	})
+	-- use({'ricardoraposo/gruvbox-minor.nvim',
+	-- 	config = function()
+	-- 		vim.cmd('colorscheme gruvbox-minor')
+	-- 	end
+	-- })
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-web-devicons')
 
 	-- Oil.nvim
-	use('stevearc/oil.nvim')
+--	use('stevearc/oil.nvim')
 
 	-- Inline colour previews
 	use('NvChad/nvim-colorizer.lua')

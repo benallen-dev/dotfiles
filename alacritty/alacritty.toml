@@ -1,7 +1,7 @@
 import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
-size = 14
+size = 18
 
 [font.bold]
 family = "NotoSansM Nerd Font Mono"
@@ -20,6 +20,7 @@ family = "NotoMono Nerd Font Mono"
 style = "Regular"
 
 [window]
+option_as_alt = "Both"
 dynamic_padding = true
 opacity = 0.9
 
