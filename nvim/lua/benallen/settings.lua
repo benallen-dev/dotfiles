@@ -34,8 +34,8 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.fillchars:append({fold = ' '})
 
--- Set highlight for Folded
-local comment_fg = vim.api.nvim_get_hl_by_name('Comment', true).foreground
+-- Set colour for folds
+local comment_fg = vim.api.nvim_get_hl(0, { name = 'Comment' }).fg
 vim.api.nvim_set_hl(0, 'Folded', { fg = comment_fg, bold = false })
 
 function Custom_Foldtext()

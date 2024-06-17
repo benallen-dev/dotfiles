@@ -19,12 +19,6 @@ return require('packer').startup(function(use)
 		end
 	})
 
-	-- use({'ricardoraposo/gruvbox-minor.nvim',
-	-- 	config = function()
-	-- 		vim.cmd('colorscheme gruvbox-minor')
-	-- 	end
-	-- })
-
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 	use('theprimeagen/harpoon')
@@ -105,4 +99,15 @@ return require('packer').startup(function(use)
 
 	-- treesitter-context
 	use('nvim-treesitter/nvim-treesitter-context')
+
+	-- Hide long css classnames
+	use {
+		'razak17/tailwind-fold.nvim',
+		requires = { 'nvim-treesitter/nvim-treesitter' },
+		config = function()
+			require('tailwind-fold').setup({
+				ft = {'html', 'typescriptreact', 'php', 'templ', 'svelte', 'astro', 'vue'}
+			})
+		end
+	}
 end)
