@@ -208,7 +208,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:monospace 24' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # fix monitor layout
-# bindsym $mod+Shift+m exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
+#bindsym $mod+Shift+m exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -261,6 +261,9 @@ exec_always --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
 gaps inner 80
 gaps outer -20
 #smart_gaps on
+
+# Attempt to rescue monitor setup
+bindsym $mod+Shift+m exec xrandr --output HDMI-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal
 
 # Random wallpaper button
 bindsym $mod+Shift+w exec --no-startup-id feh --bg-scale $(shuf -e -n1 $HOME/Pictures/wallpaper/*)
