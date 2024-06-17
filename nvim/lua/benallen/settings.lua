@@ -28,8 +28,24 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
 vim.opt.wrap = false
+vim.opt.colorcolumn = "80"
 
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
+vim.opt.fillchars:append({fold = ' '})
 
-vim.opt.colorcolumn = "80"
+-- Set highlight for Folded
+local comment_fg = vim.api.nvim_get_hl_by_name('Comment', true).foreground
+vim.api.nvim_set_hl(0, 'Folded', { fg = comment_fg, bold = false })
+
+function Custom_Foldtext()
+	local line = vim.fn.getline(vim.v.foldstart)
+	local num_lines = vim.v.foldend - vim.v.foldstart + 1
+	local line_word = num_lines == 1 and ' line' or ' lines'
+
+	local indent = string.match(line, "^[\t ]*")
+
+	return string.gsub(indent, " ", "\t") .. '--- ' .. num_lines .. line_word .. ' ---'
+end
+
+vim.o.foldtext = 'v:lua.Custom_Foldtext()'

@@ -38,3 +38,9 @@ vim.keymap.set("n", "<leader>ee", "Oif err != nil {<CR>}<ESC>Oreturn err<ESC>")
 
 -- Easier way of exiting insert mode
 vim.keymap.set("i", "<C-j>", "<ESC>")
+
+-- Folding keymaps
+vim.keymap.set("n", "zz", "za") -- Toggle fold
+vim.keymap.set("n", "zj", "zM") -- Close all folds
+vim.keymap.set("n", "zm", "zR") -- Open all folds
+
