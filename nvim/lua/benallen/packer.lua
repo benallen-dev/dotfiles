@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' }, -- Required
 			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- function argument hints
 			{ "L3MON4D3/LuaSnip", run = "make install_jsregexp" }, -- Required
 
 			-- LSP sources

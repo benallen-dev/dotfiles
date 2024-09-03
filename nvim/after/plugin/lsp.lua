@@ -29,6 +29,9 @@ lsp.on_attach(function(_, bufnr)
 
 	-- Primeagen's keymaps
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+	vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -57,6 +60,11 @@ lsp.setup()
 -- local luasnip = require 'luasnip'
 -- local cmp = require 'cmp'
 
+-- cmp.setup {
+--   sources = {
+--     { name = 'nvim_lsp_signature_help' }
+--   }
+-- }
 -- cmp.setup {
 -- 	snippet = {
 -- 		expand = function(args)
