@@ -1,6 +1,7 @@
 require("benallen.custom")
 require("benallen.settings")
 require("benallen.remap")
+require("benallen.godot")
 
 -- Shamelessly stolen from ThePrimagen. Again.
 local augroup = vim.api.nvim_create_augroup
