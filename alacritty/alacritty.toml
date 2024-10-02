@@ -23,6 +23,7 @@ style = "Regular"
 option_as_alt = "Both"
 dynamic_padding = true
 opacity = 0.9
+blur = true
 
 [window.padding]
 x = 4

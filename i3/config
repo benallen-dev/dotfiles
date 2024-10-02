@@ -258,8 +258,12 @@ exec_always --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
 
 # default_border pixel 2
 
-gaps inner 80
-gaps outer -20
+# gaps inner 80
+# gaps outer -20
+##smart_gaps on
+
+gaps inner 0
+gaps outer 0
 #smart_gaps on
 
 # Attempt to rescue monitor setup
