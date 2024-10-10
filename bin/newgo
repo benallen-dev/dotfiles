@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+
+name=$1
+
+if [ -z $name ]; then
+	echo "Usage: newgo <project name>"
+	exit 1
+fi
+
+mkdir $name
+cd $name # Would be nice to actually cd in here
+
+go mod init $name
+mkdir cmd
+mkdir pkg
+
+# MAIN
+echo "package main
+
+import (
+	\"fmt\"
+)
+
+func main() {
+	fmt.Println(\"Hello, World!\")
+}" > cmd/main.go
+
+# README
+echo "# $name
+
+## Usage
+
+\`\`\`
+go run cmd/main.go
+\`\`\`" > README.md
+
+# Makefile
+echo "run:
+	go run cmd/main.go" > Makefile
+
+# Git
+git init
+echo "bin
+tmp" > .gitignore
+git add .
+
+# Done
