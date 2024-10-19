@@ -27,17 +27,22 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 -- Replace symbol
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- LSP Rename
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
+
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Comment out lines
 vim.keymap.set({"n","v"}, "<C-_>", ":Commentary<CR>")
+vim.keymap.set({"n","v"}, "<leader>/", ":Commentary<CR>")
 
 -- Go error handling that I just stole from ThePrimeagen
 vim.keymap.set("n", "<leader>ee", "Oif err != nil {<CR>}<ESC>Oreturn err<ESC>")
 
 -- Easier way of exiting insert mode
 vim.keymap.set("i", "<C-j>", "<ESC>")
+vim.keymap.set("i", "jj", "<ESC>")
 
 -- Folding keymaps
 vim.keymap.set("n", "zz", "za") -- Toggle fold

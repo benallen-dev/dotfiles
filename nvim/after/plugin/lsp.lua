@@ -61,6 +61,16 @@ cmp.setup({
 	mapping = {
 		['<Tab>'] = cmp.mapping.confirm({ select = true }),
 	},
+	window = {
+		completion = {
+			border = 'rounded',
+			bg = 'none',
+			winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		},
+		documentation = {
+			border = 'rounded',
+		},
+	},
 })
 -- nvim-cmp setup
 -- local luasnip = require 'luasnip'
