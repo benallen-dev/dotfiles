@@ -230,13 +230,17 @@ mode "resize" {
         bindsym Right resize grow width 1 px or 1 ppt
 
 		# Adjust gaps
-		bindsym Ctrl+j gaps inner current minus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+k gaps inner current plus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+h gaps inner current set 80; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-
+		# Outer
 		bindsym Ctrl+u gaps outer current minus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
 		bindsym Ctrl+i gaps outer current plus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
 		bindsym Ctrl+y gaps outer current set -20; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		# Inner
+		bindsym Ctrl+j gaps inner current minus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+k gaps inner current plus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+h gaps inner current set 80; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		# Shortcuts to turn gaps on/off
+		bindsym Ctrl+n gaps inner current set 0; gaps outer current set 0; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+m gaps inner current set 80; gaps outer current set -20; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
