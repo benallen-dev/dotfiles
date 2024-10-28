@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 	use('theprimeagen/harpoon')
+	use('theprimeagen/vim-be-good')
 
 	use('mbbill/undotree')
 
@@ -39,10 +40,10 @@ return require('packer').startup(function(use)
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' }, -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- function argument hints
-			{ "L3MON4D3/LuaSnip", run = "make install_jsregexp" }, -- Required
+			{ 'hrsh7th/nvim-cmp' },                       -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },                   -- Required
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },    -- function argument hints
+			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" }, -- Required
 
 			-- LSP sources
 			{ 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
@@ -57,7 +58,7 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-web-devicons')
 
 	-- Oil.nvim
---	use('stevearc/oil.nvim')
+	--	use('stevearc/oil.nvim')
 
 	-- Inline colour previews
 	use('NvChad/nvim-colorizer.lua')
@@ -107,8 +108,22 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-treesitter/nvim-treesitter' },
 		config = function()
 			require('tailwind-fold').setup({
-				ft = {'html', 'typescriptreact', 'php', 'templ', 'svelte', 'astro', 'vue'}
+				ft = { 'html', 'typescriptreact', 'php', 'templ', 'svelte', 'astro', 'vue' }
 			})
+		end
+	}
+
+	use {
+		'folke/which-key.nvim',
+		config = function()
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		end,
+		setup = function()
+			-- Define your custom key bindings here
+			vim.api.nvim_set_keymap('n', '<leader>?', [[:lua require("which-key").show({ global = false })<CR>]],
+				{ noremap = true, silent = true, desc = "Buffer Local Keymaps (which-key)" })
 		end
 	}
 end)
