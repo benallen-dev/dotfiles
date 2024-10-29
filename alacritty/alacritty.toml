@@ -1,3 +1,4 @@
+[general]
 import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
