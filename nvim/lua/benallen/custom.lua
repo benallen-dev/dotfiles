@@ -13,10 +13,3 @@ vim.api.nvim_create_user_command('Asciify', function(opts)
 
 	vim.api.nvim_buf_set_lines(0, linenum, linenum, false, vim.fn.split(output, "\n"))
 end, { nargs = 1})
-
--- Add a :we command for when treesitter loses the plot
-vim.keymap.set("n", "<leader>we", function()
-	vim.cmd("write")
-	vim.cmd("edit")
-end, {})
-
