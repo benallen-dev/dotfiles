@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# counts the number of files in the current directory
+
+ls -1qp | grep -v / | wc -l
