@@ -3,3 +3,6 @@ nvim/plugin/packer_compiled.lua
 
 # Script config customisation is kept in .conf files
 scripts/*.conf
+
+# Temporarily ignore git folder so the symlink doesn't break on my arch machine
+git
