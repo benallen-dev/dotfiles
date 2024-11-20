@@ -1,7 +1,6 @@
 [general]
 import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
-[font]
 size = 20
 
 [font.bold]
