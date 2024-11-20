@@ -2,7 +2,7 @@
 import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
-size = 22
+size = 20
 
 [font.bold]
 family = "NotoSansM Nerd Font Mono"

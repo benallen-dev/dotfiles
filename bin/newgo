@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Bootstraps a new Go project
+
 name=$1
 
 if [ -z $name ]; then

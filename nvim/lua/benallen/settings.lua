@@ -40,11 +40,14 @@ vim.api.nvim_set_hl(0, 'Folded', { fg = comment_fg, bold = false })
 
 function Custom_Foldtext()
 	local line = vim.fn.getline(vim.v.foldstart)
+	--local prevline = vim.fn.getline(vim.v.foldstart - 1)
 	local num_lines = vim.v.foldend - vim.v.foldstart + 1
 	local line_word = num_lines == 1 and ' line' or ' lines'
 
 	local indent = string.match(line, "^[\t ]*")
 
+	--return indent .. string.rep("-", #prevline - 2*#indent)
+	--return string.gsub(indent, " ", "\t") .. string.rep("-", #prevline - 2*#indent)
 	return string.gsub(indent, " ", "\t") .. '--- ' .. num_lines .. line_word .. ' ---'
 end
 
