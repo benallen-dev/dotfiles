@@ -22,7 +22,6 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
 	use('theprimeagen/harpoon')
-	use('theprimeagen/vim-be-good')
 
 	use('mbbill/undotree')
 
@@ -57,11 +56,8 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-tree.lua')
 	use('nvim-tree/nvim-web-devicons')
 
-	-- Oil.nvim
-	--	use('stevearc/oil.nvim')
-
-	-- Inline colour previews
-	use('NvChad/nvim-colorizer.lua')
+	-- -- Inline colour previews
+	-- use('NvChad/nvim-colorizer.lua')
 
 	-- Status line
 	use {
