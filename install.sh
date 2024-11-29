@@ -60,7 +60,7 @@ elif [[ -f /etc/alpine-release ]]; then # Check if we're running Alpine Linux
 	sudo apk add gcc
 	sudo apk add neovim
 	sudo apk add tmux
-	sudo apk add golang
+	sudo apk add go
 	sudo apk add nvm
 	sudo apk add pnpm
 	sudo apk add fzf
@@ -96,9 +96,6 @@ echo "Running stow"
 cd "$(dirname "$0")"
 stow .
 
-# Install neovim plugins
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 # TODO: INSTALL VIM LSPs
 
 # Oh-my-zsh
@@ -107,5 +104,8 @@ if [[ ! -d ~/.oh-my-zsh ]]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install neovim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 return 0
