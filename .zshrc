@@ -106,23 +106,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Ah, macOS and linux diverge here.
 # pnpm
 export PNPM_HOME="/Users/p292980/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
-#
-source /Users/p292980/.dotfiles/scripts/fzf.sh
-
-export PATH=/Users/p292980/.dotfiles/bin:$PATH
-
-export PATH=/Users/p292980/go/bin:$PATH
-
 export PATH=/Users/p292980/Library/Python/3.9/bin:$PATH
 
-# if [ -z "$TMUX" ]; then
-#   tmux attach -d || tmux
-# fi
+# pnpm end
 #
+#source /Users/p292980/.dotfiles/scripts/fzf.sh
+
+export PATH=/Users/p292980/.dotfiles/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
