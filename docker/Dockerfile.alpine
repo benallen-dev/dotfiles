@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+# Install necessary packages and create a user in a single layer
+RUN apk add --no-cache sudo git curl neovim\
+    && adduser -D -g '' benallen \
+    && echo "benallen ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER benallen
+WORKDIR /home/benallen
+
+RUN git clone https://github.com/benallen-dev/dotfiles.git --branch feature/stow

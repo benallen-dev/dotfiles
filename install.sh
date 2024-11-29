@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # This script assumes that an unpriviledged user with sudo has been added and we're logged in as that user
 
@@ -45,8 +45,7 @@ elif [[ -f /etc/arch-release ]]; then # Check if we're running Arch Linux
 	echo "Installing necessary packages using pacman"
 	sudo pacman -S zsh neovim tmux go nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
 
-	# Check if we're running Alpine Linux
- elif [[ -f /etc/alpine-release ]]; then
+elif [[ -f /etc/alpine-release ]]; then # Check if we're running Alpine Linux
 
 	echo "We're running Alpine"
 	echo "Performing an update first"
@@ -87,26 +86,23 @@ fi
 echo "Setting zsh as the default shell"
 chsh -s $(which zsh)
 
-# Oh-my-zsh
-if [[ ! -d ~/.oh-my-zsh ]]; then
-	echo "Installing oh-my-zsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-	# Once oh-my-zsh is installed, remove .zshrc so stow can symlink the correct one
-	rm ~/.zshrc
-fi
-
 # - Clone packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# # Packages are all set up, run stow
-# echo "Running stow"
-# cd "$(dirname "$0")"
-# stow .
+# Packages are all set up, run stow
+echo "Running stow"
+cd "$(dirname "$0")"
+stow .
 
 # TODO: INSTALL VIM PLUGINS
 # TODO: INSTALL VIM LSPs
+
+# Oh-my-zsh
+if [[ ! -d ~/.oh-my-zsh ]]; then
+	echo "Installing oh-my-zsh"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 
 return 0
