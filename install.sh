@@ -24,6 +24,7 @@ sudo echo "Authenticated."
 
 # Check which OS we're running and install the necessary packages
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
 	echo "Looks like we're running macOS"
 
 	# Install homebrew if it's not already installed
@@ -35,49 +36,50 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Install necessary packages using Homebrew
 	brew install zsh neovim tmux golang nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
 
+elif [[ -f /etc/arch-release ]]; then # Check if we're running Arch Linux
 
-	# Check if we're running Arch Linux
-	elif [[ -f /etc/arch-release ]]; then
-		echo "In fact it's Arch (btw)"
-		echo "Performing an update first"
-		sudo pacman -Syu
-		echo "Installing necessary packages using pacman"
-		sudo pacman -S zsh neovim tmux go nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
-	
+	echo "Looks like we're running Arch (btw)"
+	echo "Performing an update first"
+	sudo pacman -Syu
+
+	echo "Installing necessary packages using pacman"
+	sudo pacman -S zsh neovim tmux go nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
+
 	# Check if we're running Alpine Linux
  elif [[ -f /etc/alpine-release ]]; then
-                echo "We're running Alpine"
-                echo "Performing an update first"
-                sudo apk update
-                echo "Installing necessary packages using apk"
-                sudo apk add zsh
-		sudo apk add chsh
-		sudo apk add git
-		sudo apk add curl
-		sudo apk add gcc
-                sudo apk add neovim
-                sudo apk add tmux
-                sudo apk add golang
-                sudo apk add nvm
-                sudo apk add pnpm
-                sudo apk add fzf
-                sudo apk add ripgrep
-                sudo apk add ffmpeg
-                sudo apk add nmap
-                sudo apk add htop
-                sudo apk add parallel
-                sudo apk add tree
-                sudo apk add watch
-                sudo apk add stow
-	# Check if we're running a debian-based distro
-	# This includes Ubuntu, Debian, and Pop!_OS
-	elif [[ -f /etc/debian_version ]]; then
-		echo "In fact it's a debian-based distro"
-		echo "Performing an update first"
-		sudo apt update
-		echo "Installing necessary packages using apt"
-		sudo apt install zsh neovim tmux golang nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
 
+	echo "We're running Alpine"
+	echo "Performing an update first"
+	sudo apk update
+	
+	echo "Installing necessary packages using apk"
+	sudo apk add zsh
+	sudo apk add chsh
+	sudo apk add git
+	sudo apk add curl
+	sudo apk add gcc
+	sudo apk add neovim
+	sudo apk add tmux
+	sudo apk add golang
+	sudo apk add nvm
+	sudo apk add pnpm
+	sudo apk add fzf
+	sudo apk add ripgrep
+	sudo apk add ffmpeg
+	sudo apk add nmap
+	sudo apk add htop
+	sudo apk add parallel
+	sudo apk add tree
+	sudo apk add watch
+	sudo apk add stow
+
+elif [[ -f /etc/debian_version ]]; then # Check if we're running a debian-based distro
+
+	echo "Detected Debian"
+	echo "Performing an update first"
+	sudo apt update
+	echo "Installing necessary packages using apt"
+	sudo apt install zsh neovim tmux golang nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
 
 fi
 
