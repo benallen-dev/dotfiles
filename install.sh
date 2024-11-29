@@ -87,8 +87,8 @@ echo "Setting zsh as the default shell"
 chsh -s $(which zsh)
 
 # - Clone packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+#  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Packages are all set up, run stow
 echo "Running stow"

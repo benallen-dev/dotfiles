@@ -1,8 +1,8 @@
 # Repo housekeeping
-.gitignore
-.gitmodules
-.stow-local-ignore
+\.gitignore
+\.gitmodules
+\.stow-local-ignore
 
 # Tools
 install.sh
-docker/
+/docker
