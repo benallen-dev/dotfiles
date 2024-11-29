@@ -7,3 +7,6 @@
 # Tools
 install.sh
 /docker
+
+# Useful to keep but not necessary in home dir
+/wacom
