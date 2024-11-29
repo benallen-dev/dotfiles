@@ -95,7 +95,9 @@ echo "Running stow"
 cd "$(dirname "$0")"
 stow .
 
-# TODO: INSTALL VIM PLUGINS
+# Install neovim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
 # TODO: INSTALL VIM LSPs
 
 # Oh-my-zsh
