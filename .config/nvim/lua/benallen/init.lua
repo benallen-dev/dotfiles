@@ -1,3 +1,4 @@
+require("benallen.packer")
 require("benallen.custom")
 require("benallen.settings")
 require("benallen.remap")
