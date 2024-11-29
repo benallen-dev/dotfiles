@@ -1,4 +1,5 @@
 # Repo housekeeping
+\.git
 \.gitignore
 \.gitmodules
 \.stow-local-ignore
