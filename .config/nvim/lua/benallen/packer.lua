@@ -78,15 +78,6 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
 
-	-- Prettier
-	use {
-		'MunifTanjim/prettier.nvim',
-		requires = {
-			{ 'neovim/nvim-lspconfig' },
-			{ 'jose-elias-alvarez/null-ls.nvim' }
-		}
-	}
-
 	use {
 		'laytan/tailwind-sorter.nvim',
 		requires = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
