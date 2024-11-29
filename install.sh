@@ -53,7 +53,7 @@ elif [[ -f /etc/alpine-release ]]; then # Check if we're running Alpine Linux
 	
 	echo "Installing necessary packages using apk"
 	sudo apk add zsh
-	sudo apk add chsh
+	sudo apk add shadow
 	sudo apk add git
 	sudo apk add curl
 	sudo apk add libc-dev
