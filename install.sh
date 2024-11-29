@@ -96,16 +96,16 @@ echo "Running stow"
 cd "$(dirname "$0")"
 stow .
 
-# TODO: INSTALL VIM LSPs
+# Install neovim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
+# TODO: INSTALL VIM LSPs
+#
 # Oh-my-zsh
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
-# Install neovim plugins
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 return 0
