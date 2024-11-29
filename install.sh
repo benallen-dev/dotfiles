@@ -88,24 +88,24 @@ echo "Setting zsh as the default shell"
 chsh -s $(which zsh)
 
 # - Clone packer
-# git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-#  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# Install neovim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Packages are all set up, run stow
 echo "Running stow"
 cd "$(dirname "$0")"
 stow .
 
-# Install neovim plugins
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # TODO: INSTALL VIM LSPs
 #
 # Oh-my-zsh
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 fi
 
 return 0
