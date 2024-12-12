@@ -1,0 +1,5 @@
+[user]
+	name = Ben Allen
+	email = ballen@anwb.nl
+[pull]
+	rebase = true
