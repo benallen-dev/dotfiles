@@ -1,3 +1,7 @@
+export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -70,7 +74,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo)
+plugins=(git sudo tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,16 +112,15 @@ export NVM_DIR="$HOME/.nvm"
 
 # Ah, macOS and linux diverge here.
 # pnpm
-export PNPM_HOME="/Users/p292980/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-export PATH=/Users/p292980/Library/Python/3.9/bin:$PATH
 
 # pnpm end
 #
 #source /Users/p292980/.dotfiles/scripts/fzf.sh
 
-export PATH=/Users/p292980/.dotfiles/bin:$PATH
+#export PATH=/Users/p292980/dotfiles/bin:$PATH
 export PATH=$HOME/go/bin:$PATH

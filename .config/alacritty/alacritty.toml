@@ -1,19 +1,20 @@
 [general]
-import = ["~/.dotfiles/alacritty/themes/themes/gruvbox_dark.toml"]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 
-size = 20
+[font]
+size = 16
 
 [font.bold]
 family = "NotoSansM Nerd Font Mono"
 style = "SemiBold"
 
 [font.bold_italic]
-family = "Cascadia Code PL"
-style = "Italic"
+family = "Caskaydia Mono Nerd Font"
+style = "Bold Italic"
 
 [font.italic]
-family = "Cascadia Code PL"
-style = "Light Italic"
+family = "Caskaydia Mono Nerd Font"
+style = "Italic"
 
 [font.normal]
 family = "NotoMono Nerd Font Mono"
@@ -22,7 +23,7 @@ style = "Regular"
 [window]
 option_as_alt = "Both"
 dynamic_padding = true
-opacity = 0.9
+opacity = 0.8
 blur = true
 
 [window.padding]

@@ -1,5 +1,12 @@
-# Neovim compiled plugin file
-nvim/plugin/packer_compiled.lua
+# Neovim compiled plugin files
+.config/nvim/plugin/packer_compiled.lua
+.config/github-copilot/
+
+# Anything in .ssh that isn't keys or config
+.ssh/
+!.ssh/config
+!.ssh/id_25519
+!.ssh/id_25519.pub
 
 # Script config customisation is kept in .conf files
 scripts/*.conf
