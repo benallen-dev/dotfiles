@@ -34,7 +34,22 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 
 	# Install necessary packages using Homebrew
-	brew install zsh neovim tmux golang nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools parallel tree watch stow
+	brew install zsh
+	brew install neovim
+	brew install tmux
+	brew install golang
+	brew install nvm
+	brew install pnpm
+	brew install fzf
+	brew install ripgrep
+	brew install ffmpeg
+	brew install nmap
+	brew install htop
+	brew install mongodb-database-tools 
+	brew install parallel
+	brew install tree
+	brew install watch
+	brew install stow
 
 elif [[ -f /etc/arch-release ]]; then # Check if we're running Arch Linux
 

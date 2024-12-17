@@ -8,11 +8,10 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	foo=$(find ~/projects ~/codecrafters ~/anwb ~/anwb-meuk -mindepth 1 -maxdepth 1 -type d)
-	foo+="\n$HOME/.dotfiles"
+	foo=$(find ~/projects ~/anwb -mindepth 1 -maxdepth 1 -type d)
+	foo+="\n$HOME/dotfiles"
 	foo+="\n$HOME/projects"
 	foo+="\n$HOME/scratch"
-	foo+="\n$HOME/vpn"
 	selected=$(echo -e $foo | fzf)
 fi
 
