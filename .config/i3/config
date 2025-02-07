@@ -13,7 +13,7 @@
 # exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
 
 # Load background first-thing to minimise flicker
-exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.jpg
+exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/background.png
 
 # Load the picom compositor for fancy transparency effects
 exec --no-startup-id picom -b
@@ -23,7 +23,7 @@ set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 20
+font pango:monospace semibold 20
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -231,27 +231,25 @@ mode "resize" {
 
 		# Adjust gaps
 		# Outer
-		bindsym Ctrl+u gaps outer current minus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+i gaps outer current plus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+y gaps outer current set -20; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+u gaps outer current minus 10
+		bindsym Ctrl+i gaps outer current plus 10
+		bindsym Ctrl+y gaps outer current set -20
 		# Inner
-		bindsym Ctrl+j gaps inner current minus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+k gaps inner current plus 10; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+h gaps inner current set 80; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+j gaps inner current minus 10
+		bindsym Ctrl+k gaps inner current plus 10
+		bindsym Ctrl+h gaps inner current set 80
 		# Shortcuts to turn gaps on/off
-		bindsym Ctrl+n gaps inner current set 0; gaps outer current set 0; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-		bindsym Ctrl+m gaps inner current set 80; gaps outer current set -20; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+		bindsym Ctrl+n gaps inner current set 0; gaps outer current set 0
+		bindsym Ctrl+m gaps inner current set 80; gaps outer current set -20
 
         # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-        bindsym Escape mode "default"; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-        bindsym $mod+r mode "default"; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 
 }
 
-bindsym $mod+r mode "resize"; exec --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
-# Initialise temp file
-exec_always --no-startup-id ~/.dotfiles/polybar/scripts/gaps.sh
+bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -282,10 +280,10 @@ bindsym $mod+Shift+s exec --no-startup-id spectacle --background --region --copy
 #bindsym $mod+Shift+4 exec --no-startup-id spectacle --background --region --copy-image
 
 # Streamdeck
-exec_always --no-startup-id streamdeck -n
+exec_always --no-startup-id streamcontroller --close-running -b
 
 # Initial setup for wacom tablet (udev rules only run after plugging in)
-exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
+#exec --no-startup-id $HOME/.dotfiles/wacom/wacom-config.sh
 
 # Monitor setup
 # exec --no-startup-id $HOME/.dotfiles/screenlayout/vertical-left.sh
@@ -295,3 +293,4 @@ exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/backgroun
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+

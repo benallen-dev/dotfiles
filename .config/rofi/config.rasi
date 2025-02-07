@@ -1,5 +1,5 @@
 configuration {
-	font: "mono 16";
+	font: "Caskaydia Mono Nerd Font Mono 16";
 	case-sensitive: false;
 	show-icons: true;
 	modes: "window,drun,run,ssh";

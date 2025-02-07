@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+# This script assumes the background is always background.png - because if you only use this to set it, it will be.
+sudo echo "Setting background to $(basename $1)"
+
+# Rename the old background
+sudo mv /usr/share/sddm/themes/chili/assets/background.png /usr/share/sddm/themes/chili/assets/background-$(date -Iminutes | sed 's/[T+:]/-/g').png;
+
+if [[ $1 != *.png ]]; then
+	# If the file being copied is not a png, use ffmpeg to convert it
+	sudo ffmpeg -i $1 /usr/share/sddm/themes/chili/assets/background.png;
+else
+	# otherwise, just copy it across
+	sudo cp $1 /usr/share/sddm/themes/chili/assets/background.png;
+fi
+
+# Finally reload the background using feh
+feh --bg-scale /usr/share/sddm/themes/chili/assets/background.png;
+
+sudo echo "background set"
