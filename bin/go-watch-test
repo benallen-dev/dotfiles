@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# Thanks Michael! https://michenriksen.com/posts/automatically-run-go-test-on-file-changes/
+watchexec       \
+  -c clear      \
+  -o do-nothing \
+  -d 100ms      \
+  --exts go     \
+  --timings		\
+  --color always \
+  "go test $1"
