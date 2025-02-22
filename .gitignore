@@ -2,6 +2,7 @@
 .config/nvim/plugin/packer_compiled.lua
 .config/github-copilot/
 
+# To update encrypted files: git update-index --no-assume-unchanged <file>
 # Anything in .ssh that isn't keys or config
 .ssh/
 !.ssh/config
