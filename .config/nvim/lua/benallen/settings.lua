@@ -28,6 +28,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
 vim.opt.wrap = false
+vim.opt.linebreak = true -- that way if you do :set wrap, it will wrap correctly
 vim.opt.colorcolumn = "80"
 
 vim.opt.foldmethod = "indent"

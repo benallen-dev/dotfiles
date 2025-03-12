@@ -2,14 +2,14 @@
 -- vim.cmd [[packadd packer.nvim]]
 
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -52,9 +52,9 @@ return require('packer').startup(function(use)
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },                       -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' },                   -- Required
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },    -- function argument hints
+			{ 'hrsh7th/nvim-cmp' },                                         -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },                                     -- Required
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },                      -- function argument hints
 			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" }, -- Required
 
 			-- LSP sources
@@ -127,7 +127,11 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	use {
+		'romainl/vim-cool',
+	}
+
 	if packer_bootstrap then
-	  require('packer').sync()
+		require('packer').sync()
 	end
 end)
