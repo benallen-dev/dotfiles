@@ -8,6 +8,7 @@ vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>')	-- Clear search results on E
 
 vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
+vim.o.winborder = "rounded"
 
 vim.opt.list = true
 vim.opt.listchars = {

@@ -67,11 +67,25 @@ cmp.setup({
 			bg = 'none',
 			winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenu,CursorLine:PmenuSel,Search:None",
 		},
-		documentation = {
-			border = 'rounded',
-		},
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lsp_signature_help' },
+		{ name = 'luasnip' },
+		-- {
+		-- 	name = 'nvim-cmp-local-llm',
+		-- 	autocomplete = {
+		-- 		cmp.TriggerEvent.TextChangedI,
+		-- 	},
+		-- 	keyword_length = 1,
+		-- 	priority = 100,
+		-- },
 	},
 })
+
+
+
+
 -- nvim-cmp setup
 -- local luasnip = require 'luasnip'
 -- local cmp = require 'cmp'
