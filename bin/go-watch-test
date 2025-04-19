@@ -8,4 +8,4 @@ watchexec       \
   --exts go     \
   --timings		\
   --color always \
-  "go test $1"
+  "go test $@"
