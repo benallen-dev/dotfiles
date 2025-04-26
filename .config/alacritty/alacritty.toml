@@ -23,7 +23,7 @@ style = "Regular"
 [window]
 option_as_alt = "Both"
 dynamic_padding = true
-opacity = 0.8
+opacity = 0.9
 blur = true
 decorations = "Full"
 dynamic_title = true

@@ -309,9 +309,13 @@ bindsym $mod+Shift+s exec --no-startup-id spectacle --background --region --copy
 # gaps outer -20
 # smart_gaps on
 
-gaps inner 0
-gaps outer 0
-smart_gaps on
+gaps inner 40
+gaps outer -10
+smart_gaps off
+
+# gaps inner 0
+# gaps outer 0
+# smart_gaps on
 
 
 # ░█████╗░██╗░░░██╗░██████╗████████╗░█████╗░███╗░░░███╗
