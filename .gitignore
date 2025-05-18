@@ -14,3 +14,6 @@ scripts/*.conf
 
 # Temporarily ignore git folder so the symlink doesn't break on my arch machine
 git
+
+# Any secrets
+**/*.secret
