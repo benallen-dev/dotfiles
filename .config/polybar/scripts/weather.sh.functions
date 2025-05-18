@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# These glyphs will likely not display correctly as you're supposed to set the font for this module to 'weather-icons': https://aur.archlinux.org/packages/ttf-weather-icons
+
+function get_icon() {
+	local MAIN=$1
+	local WEATHER_DESC=$2
+
+	# Get the icon for the weather condition
+}
+
+function wind_dir() {
+	# Convert wind direction from degrees to cardinal direction
+	local WIND_DIR=$1
+
+	if [ "$WIND_DIR" -ge 337 ] || [ "$WIND_DIR" -lt 23 ]; then
+		echo "" # just trust me ok
+	elif [ "$WIND_DIR" -ge 23 ] && [ "$WIND_DIR" -lt 68 ]; then
+		echo ""
+	elif [ "$WIND_DIR" -ge 68 ] && [ "$WIND_DIR" -lt 113 ]; then
+		echo ""
+	elif [ "$WIND_DIR" -ge 113 ] && [ "$WIND_DIR" -lt 158 ]; then
+		echo ""
+	elif [ "$WIND_DIR" -ge 158 ] && [ "$WIND_DIR" -lt 203 ]; then
+		echo ""
+	elif [ "$WIND_DIR" -ge 203 ] && [ "$WIND_DIR" -lt 248 ]; then
+		echo ""
+	elif [ "$WIND_DIR" -ge 248 ] && [ "$WIND_DIR" -lt 293 ]; then
+		echo ""
+	else
+		echo ""
+	fi
+}
+
+function beaufort() {
+	local SPEED=$1
+
+	if (( $(echo "$SPEED < 0.2" | bc -l) )); then
+		echo "" # 0 bft
+	elif (( $(echo "$SPEED < 1.5" | bc -l) )); then
+		echo "" # 1 bft
+	elif (( $(echo "$SPEED < 3.3" | bc -l) )); then
+		echo "" # 2 bft
+	elif (( $(echo "$SPEED < 5.4" | bc -l) )); then
+		echo "" # 3 bft
+	elif (( $(echo "$SPEED < 7.9" | bc -l) )); then
+		echo "" # 4 bft
+	elif (( $(echo "$SPEED < 10.7" | bc -l) )); then
+		echo "" # 5 bft
+	elif (( $(echo "$SPEED < 13.8" | bc -l) )); then
+		echo "" # 6 bft
+	elif (( $(echo "$SPEED < 17.1" | bc -l) )); then
+		echo "" # 7 bft
+	elif (( $(echo "$SPEED < 20.7" | bc -l) )); then
+		echo "" # 8 bft
+	elif (( $(echo "$SPEED < 24.4" | bc -l) )); then
+		echo "" # 9 bft
+	elif (( $(echo "$SPEED < 28.4" | bc -l) )); then
+		echo "" # 10 bft
+	elif (( $(echo "$SPEED < 32.6" | bc -l) )); then
+		echo "" # 11 bft
+	else
+		echo "" # 12 bft
+	fi
+}

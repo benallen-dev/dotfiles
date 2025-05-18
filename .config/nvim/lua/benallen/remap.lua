@@ -50,3 +50,6 @@ vim.keymap.set("n", "<leader>we", function()
 	vim.cmd("edit")
 end, {desc = "Write and reopen"})
 
+vim.keymap.set("n", "<leader>k", function()
+	vim.lsp.buf.code_action()
+end, {desc = "List code actions"})
