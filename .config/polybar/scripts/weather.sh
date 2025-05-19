@@ -20,8 +20,7 @@ if [ -z "$LAT" ] || [ -z "$LON" ]; then
 
 	# Fetch the latitude and longitude for the given location, and store it
 	eval "$(curl -s https://api.openweathermap.org/geo/1.0/direct?q=$LOCATION\&appid=$API_KEY | jq -r '.[0] | "LAT=\(.lat)\nLON=\(.lon)"')"
-	echo "LAT=$LAT" >./weather.sh.config
-	echo "LON=$LON" >>./weather.sh.config
+	echo -e "#!/usr/bin/env bash\n\nLAT=$LAT\nLON=$LON" > ./weather.sh.config
 fi
 
 # Get and format weather data

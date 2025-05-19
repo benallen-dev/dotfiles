@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # These glyphs will likely not display correctly as you're supposed to set the font for this module to 'weather-icons': https://aur.archlinux.org/packages/ttf-weather-icons
 declare -A wind_dir_icons
