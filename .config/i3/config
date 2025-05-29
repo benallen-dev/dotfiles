@@ -59,7 +59,7 @@ exec --no-startup-id feh --bg-fill /usr/share/sddm/themes/chili/assets/backgroun
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Streamdeck
-exec_always --no-startup-id streamcontroller --close-running -b
+exec_always --no-startup-id $HOME/bin/streamcontroller -b
 
 # Use xscreensaver
 exec --no-startup-id xscreensaver --no-splash
