@@ -58,7 +58,7 @@ elif [[ -f /etc/arch-release ]]; then # Check if we're running Arch Linux
 	sudo pacman -Syu
 
 	echo "Installing necessary packages using pacman"
-	sudo pacman -S zsh neovim tmux go nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools tools parallel tree watch stow gcc make playerctl
+	sudo pacman -S zsh neovim tmux go nvm pnpm fzf ripgrep ffmpeg nmap htop mongodb-database-tools tools parallel tree watch stow gcc make playerctl exa
 
 elif [[ -f /etc/alpine-release ]]; then # Check if we're running Alpine Linux
 
