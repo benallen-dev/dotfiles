@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# I'm probably not going to remember these flags so here it is
+lsof -nP -iTCP -sTCP:LISTEN
