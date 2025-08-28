@@ -27,9 +27,14 @@ return require('packer').startup(function(use)
 	use({
 		'ellisonleao/gruvbox.nvim',
 		as = 'gruvbox',
-		config = function()
-			vim.cmd('colorscheme gruvbox')
-		end
+		-- config = function()
+		-- 	vim.cmd('colorscheme gruvbox')
+		-- end
+	})
+
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin"
 	})
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
