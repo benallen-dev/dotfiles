@@ -20,13 +20,14 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-	background-color: rgba(128, 128, 128, 0.4);
+	background-color: rgba(64, 64, 64, 0.4);
 	border-radius: 8px;
 	margin: 8px 16px 0 16px;
 	min-height: 32px;
 }
 
 .module {
+	color: #ffffff;
 	/* margin: 0px 8px; */
 	/* background-color: rgba(128, 128, 128, 0.4); */
 }
@@ -121,6 +122,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
+	/* background-color: rgba(64, 64, 64, 0.5); */
     padding: 0 20px;
     color: #ffffff;
 }
@@ -141,17 +143,17 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    /* background-color: #64727D; */
 }
 
 #battery {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
+    /* background-color: #26A65B; */
 }
 
 @keyframes blink {
@@ -177,92 +179,92 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
+    /* background-color: #f53c3c; */
     color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
     color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
+    /* background-color: #2ecc71; */
     color: #000000;
 }
 
 label:focus {
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    /* background-color: #2ecc71; */
+    /* color: #000000; */
 }
 
 #memory {
-    background-color: #9b59b6;
+    /* background-color: #9b59b6; */
 }
 
 #disk {
-    background-color: #964B00;
+    /* background-color: #964B00; */
 }
 
 #backlight {
-    background-color: #90b1b1;
+    /* background-color: #90b1b1; */
 }
 
 #network {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    /* background-color: #f53c3c; */
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /* background-color: #f1c40f; */
+    /* color: #000000; */
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    /* background-color: #90b1b1; */
+    /* color: #2a5c45; */
 }
 
 #wireplumber {
-    background-color: #fff0f5;
+    /* background-color: #fff0f5; */
     color: #000000;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    /* background-color: #f53c3c; */
 }
 
 #custom-media {
-    background-color: #66cc99;
+    /* background-color: #66cc99; */
     color: #2a5c45;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    /* background-color: #66cc99; */
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    /* background-color: #ffa000; */
 }
 
 #temperature {
-    background-color: #f0932b;
+    /* background-color: #f0932b; */
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    /* background-color: #eb4d4b; */
 }
 
 #tray {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
 }
 
 #tray > .passive {
@@ -271,33 +273,33 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    /* background-color: #eb4d4b; */
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    /* background-color: #2d3436; */
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
+    /* background-color: #ecf0f1; */
     color: #2d3436;
 }
 
 #mpd {
-    background-color: #66cc99;
+    /* background-color: #66cc99; */
     color: #2a5c45;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    /* background-color: #f53c3c; */
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
+    /* background-color: #90b1b1; */
 }
 
 #mpd.paused {
-    background-color: #51a37a;
+    /* background-color: #51a37a; */
 }
 
 #language {
@@ -329,7 +331,7 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+	/* background-color: transparent; */
 }
 
 #privacy {
@@ -342,15 +344,15 @@ label:focus {
 }
 
 #privacy-item.screenshare {
-    background-color: #cf5700;
+    /* background-color: #cf5700; */
 }
 
 #privacy-item.audio-in {
-    background-color: #1ca000;
+    /* background-color: #1ca000; */
 }
 
 #privacy-item.audio-out {
-    background-color: #0069d4;
+    /* background-color: #0069d4; */
 }
 
 #custom-power {

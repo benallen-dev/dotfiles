@@ -107,6 +107,9 @@ export PATH=$HOME/go/bin:$PATH
 #Add local bin to path
 export PATH=$HOME/.local/bin:$PATH
 
+#Golang
+export PATH=$PATH:/usr/local/go/bin
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
