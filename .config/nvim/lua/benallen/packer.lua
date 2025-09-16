@@ -52,15 +52,27 @@ return require('packer').startup(function(use)
 		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{ 'neovim/nvim-lspconfig' },    -- Required
-			{ 'williamboman/mason.nvim' },  -- Optional
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
+			{ 'neovim/nvim-lspconfig' }, -- Required
+			{ 'mason-org/mason.nvim' },  -- Optional
+			{ 'mason-org/mason-lspconfig.nvim' }, -- Optional
+			{
+				'mason-org/mason-lspconfig.nvim',
+				config = function()
+					require("mason-lspconfig").setup({
+						automatic_installation = false,
+						automatic_setup = false,
+						automatic_enable = false,
+					})
+				end
+			}, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },                                         -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' },                                     -- Required
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },                      -- function argument hints
-			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" }, -- Required
+			{ 'hrsh7th/nvim-cmp' },           -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },       -- Required
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- function argument hints
+			{ "L3MON4D3/LuaSnip",
+				run = "make install_jsregexp"
+			}, -- Required
 
 			-- LSP sources
 			{ 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
