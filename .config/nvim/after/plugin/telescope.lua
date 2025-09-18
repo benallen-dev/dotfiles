@@ -2,7 +2,7 @@ local builtin = require('telescope.builtin')
 
 -- (f)ile search
 vim.keymap.set('n', '<leader>f', function()
-	builtin.find_files({  find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' }});
+	builtin.find_files({ find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' } });
 end)
 -- (g)git search, not used as often therefore double key is ok
 vim.keymap.set("n", "<leader>gg", builtin.git_files, {})
@@ -21,11 +21,10 @@ end)
 
 -- find something
 vim.keymap.set('n', '<leader>pp', function()
-	builtin.grep_string({ search = ""}) ;
+	builtin.grep_string({ search = "" });
 end)
 
 vim.keymap.set('n', '<leader>pf', function()
-	builtin.find_files({  find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' }});
+	builtin.find_files({ find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' } });
 	--	builtin.find_files({ hidden = true });
 end)
-

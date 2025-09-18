@@ -27,9 +27,6 @@ return require('packer').startup(function(use)
 	use({
 		'ellisonleao/gruvbox.nvim',
 		as = 'gruvbox',
-		-- config = function()
-		-- 	vim.cmd('colorscheme gruvbox')
-		-- end
 	})
 
 	use({
@@ -53,8 +50,7 @@ return require('packer').startup(function(use)
 		requires = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' }, -- Required
-			{ 'mason-org/mason.nvim' },
-			{ 'mason-org/mason-lspconfig.nvim' },
+			{ 'mason-org/mason.nvim' },  -- Optional
 
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' },           -- Required
@@ -65,7 +61,7 @@ return require('packer').startup(function(use)
 			}, -- Required
 
 			-- LSP sources
-			{ 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
+			-- { 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
 		}
 	}
 
@@ -92,7 +88,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- Github Copilot
-	use('github/copilot.vim')
+	-- use('github/copilot.vim')
 
 	-- Discord rich presence
 	use('andweeb/presence.nvim')
