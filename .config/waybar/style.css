@@ -10,6 +10,7 @@
 
 window#waybar {
 	background: none;
+	border: none;
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     
     /* color: #ffffff; */
