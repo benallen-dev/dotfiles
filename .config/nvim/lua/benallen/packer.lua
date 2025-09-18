@@ -53,18 +53,8 @@ return require('packer').startup(function(use)
 		requires = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' }, -- Required
-			{ 'mason-org/mason.nvim' },  -- Optional
-			{ 'mason-org/mason-lspconfig.nvim' }, -- Optional
-			{
-				'mason-org/mason-lspconfig.nvim',
-				config = function()
-					require("mason-lspconfig").setup({
-						automatic_installation = false,
-						automatic_setup = false,
-						automatic_enable = false,
-					})
-				end
-			}, -- Optional
+			{ 'mason-org/mason.nvim' },
+			{ 'mason-org/mason-lspconfig.nvim' },
 
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' },           -- Required
