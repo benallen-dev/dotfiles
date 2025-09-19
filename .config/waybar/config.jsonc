@@ -24,7 +24,9 @@
         // "power-profiles-daemon",
         "cpu",
         "memory",
-        "temperature",
+		"disk",
+		"custom/updates",
+        // "temperature",
         // "backlight",
         // "keyboard-state",
         // "sway/language",
@@ -134,6 +136,10 @@
     "memory": {
         "format": "{}% "
     },
+	"disk": {
+		"format": "/ {percentage_used} %",
+		"tooltip": true,
+	},
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -227,5 +233,19 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    }
+    },
+    "custom/updates": {
+        "format": "{text}",
+        "return-type": "text",
+        "max-length": 40,
+        // "format-icons": {
+        //     "spotify": "",
+        //     "default": "🎜"
+        // },
+        "escape": true,
+        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+		"exec": "$HOME/.config/waybar/scripts/updates.sh"
+    },
+
 }

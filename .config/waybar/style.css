@@ -122,6 +122,8 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#custom-power,
+#custom-updates,
 #mpd {
 	/* background-color: rgba(64, 64, 64, 0.5); */
     padding: 0 20px;
@@ -143,8 +145,17 @@ button:hover {
     margin-right: 0;
 }
 
+#disk,
 #clock {
+	padding-top: 4px;
     /* background-color: #64727D; */
+}
+
+#cpu {
+	padding-right: 10px;
+}
+#memory {
+	padding-left: 10px;
 }
 
 #battery {
@@ -356,6 +367,6 @@ label:focus {
     /* background-color: #0069d4; */
 }
 
-#custom-power {
-	padding: 0 20px;
+#custom-updates {
+	padding: 0 10px;
 }
