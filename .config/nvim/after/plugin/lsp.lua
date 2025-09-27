@@ -1,3 +1,5 @@
+require('mason').setup()
+
 vim.diagnostic.config({
 	signs = {
 		-- text = {
@@ -50,14 +52,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.lsp.enable({
 	'ast_grep',
 	'bashls',
+	'cssls',
 	'gopls',
+	'html',
 	'htmx',
 	'hyprls',
 	'lua_ls',
-	'pylsp',
-	'pyright',
 	'tailwindcss',
 	'ts_ls',
+	-- 'pylsp',
+	-- 'pyright',
 })
 
 local cmp = require('cmp')
@@ -79,4 +83,7 @@ cmp.setup({
 		{ name = 'nvim_lsp_signature_help' },
 		{ name = 'luasnip' },
 	},
+	formatting= {
+		format = require("nvim-highlight-colors").format
+	}
 })

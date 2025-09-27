@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-web-devicons')
 
 	-- -- Inline colour previews
+	use('brenoprata10/nvim-highlight-colors')
 	-- use('NvChad/nvim-colorizer.lua')
 
 	-- Status line
