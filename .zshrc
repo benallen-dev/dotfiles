@@ -74,8 +74,8 @@ ZSH_THEME="strug"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git sudo tmux)
 
-# ZSH_TMUX_AUTOSTART=true
-#ZSH_TMUX_AUTOCONNECT=true
+ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOCONNECT=true
 
 source $ZSH/oh-my-zsh.sh
 
