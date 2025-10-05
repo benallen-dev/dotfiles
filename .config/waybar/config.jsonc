@@ -1,37 +1,23 @@
 // -*- mode: jsonc -*-
 {
 	"reload_style_on_change": true,
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 32, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap"
-        // "sway/scratchpad",
-        // "custom/media"
     ],
     "modules-center": [
-        "hyprland/window"
+        // "hyprland/window",
+		"mpris"
     ],
     "modules-right": [
-        // "mpd",
-        // "idle_inhibitor",
         "pulseaudio",
         "network",
-        // "power-profiles-daemon",
         "cpu",
         "memory",
 		"disk",
 		"custom/updates",
-        // "temperature",
-        // "backlight",
-        // "keyboard-state",
-        // "sway/language",
-        // "battery",
-        // "battery#bat2",
         "clock",
         "tray",
         "custom/power"
@@ -42,13 +28,17 @@
         "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{icon}",
+		"persistent-workspaces": {
+			"*": [1,2,3,5,7,8,9]
+		},
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
-            "6": "",
-			"7": "󰓓",
-			"8": "",
+			"5": " ",
+            "7": "",
+			"8": "󰓓",
+			"9": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -114,6 +104,19 @@
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
         // }
     },
+	"mpris": {
+		"format": "{player_icon}\t{title}\t<small>{artist}</small>",
+		"format-paused": "{status_icon}\t{title}\t<small>{artist}</small>",
+		"player-icons": {
+			"default": "▶ ",
+			"mpv": "🎵",
+			"spotify": " "
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		// "ignored-players": ["firefox"]
+	},
     "clock": {
         // "timezone": "America/New_York",
 		"format": "{:%d %B %H:%M}",
@@ -210,6 +213,7 @@
         },
         "on-click": "pavucontrol"
     },
+
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",

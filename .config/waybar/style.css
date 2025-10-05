@@ -25,6 +25,7 @@ window#waybar {
 	border-radius: 8px;
 	margin: 8px 16px 0 16px;
 	min-height: 32px;
+	padding: 0 16px;
 }
 
 .module {
@@ -124,7 +125,8 @@ button:hover {
 #power-profiles-daemon,
 #custom-power,
 #custom-updates,
-#mpd {
+#mpd,
+#window {
 	/* background-color: rgba(64, 64, 64, 0.5); */
     padding: 0 20px;
     color: #ffffff;
