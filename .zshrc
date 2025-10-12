@@ -110,6 +110,9 @@ export PATH=$HOME/.local/bin:$PATH
 #Golang
 export PATH=$PATH:/usr/local/go/bin
 
+#Rust binaries
+export PATH=$PATH:$HOME/.cargo/bin
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -123,5 +126,6 @@ export NVM_DIR="$HOME/.config/nvm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias l="exa -la --icons"
+alias l="exa -la --icons --group-directories-first --git"
+alias t="exa -a --tree --icons --group-directories-first"
 
