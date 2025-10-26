@@ -15,6 +15,7 @@
         "pulseaudio",
         "network",
         "cpu",
+        "custom/cpuhistory",
         "memory",
 		"disk",
 		"custom/updates",
@@ -214,6 +215,13 @@
         "on-click": "pavucontrol"
     },
 
+	"custom/cpuhistory": {
+		"exec": "~/.config/waybar/scripts/cpu_history.py -d 20",
+		"format": "{}",
+		"interval": 1,
+		"return-type": "json",
+		"on-click": "~/.config/waybar/scripts/cpu_history.py toggle"
+	},
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -242,13 +250,8 @@
         "format": "{text}",
         "return-type": "text",
         "max-length": 40,
-        // "format-icons": {
-        //     "spotify": "",
-        //     "default": "🎜"
-        // },
         "escape": true,
-        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+		"interval": 900,
 		"exec": "$HOME/.config/waybar/scripts/updates.sh"
     },
 
