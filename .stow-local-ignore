@@ -10,3 +10,4 @@ install.sh
 
 # Useful to keep but not necessary in home dir
 /wacom
+/pacman-hooks

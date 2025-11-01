@@ -248,6 +248,8 @@
     },
     "custom/updates": {
         "format": "{text}",
+		"interval": 600,
+		"signal": 3,
         "return-type": "text",
         "max-length": 40,
         "escape": true,

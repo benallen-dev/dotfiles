@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Update waybar custom/updates module
+When = PostTransaction
+Exec = kill -n 37 $(pgrep waybar)
+
