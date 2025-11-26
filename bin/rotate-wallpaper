@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+MONITOR="HDMI-A-1"
+WALLDIR="$HOME/yoink/categorised/keep"
+CONFIG="$HOME/.config/hypr/hyprpaper.conf"
+
+CURRENT_WALL=$(sed -n 's|^preload = \(.*\)|\1|p' "$CONFIG")
+
+# Avoid choosing the current wallpaper again
+while true; do
+	RANDOM_WALL=$(find "$WALLDIR" -type f | shuf -n 1)
+	[[ "'$RANDOM_WALL'" != "'$CURRENT_WALL'" ]] && break
+done
+
+MONITOR=$(hyprctl monitors | grep "Monitor" | awk '{print $2}' | head -n1)
+
+# Print what we're doing to the terminal
+echo -e "\033[90m$MONITOR"
+echo -e "\033[31m$CURRENT_WALL"
+echo -e "\033[32m$RANDOM_WALL\033[0m"
+
+# Set immediately
+hyprctl hyprpaper preload "$RANDOM_WALL"
+hyprctl hyprpaper wallpaper "$MONITOR,$RANDOM_WALL"
+
+# Update hyprpaper.conf
+sed -i "s|^preload = .*|preload = $RANDOM_WALL|" "$CONFIG"
+sed -i "s|^wallpaper = .*|wallpaper = $MONITOR, $RANDOM_WALL|" "$CONFIG"
