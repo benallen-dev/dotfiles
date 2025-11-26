@@ -108,6 +108,7 @@
 	"mpris": {
 		"format": "{player_icon}\t{title}\t<small>{artist}</small>",
 		"format-paused": "{status_icon}\t{title}\t<small>{artist}</small>",
+		"max-length": 64,
 		"player-icons": {
 			"default": "▶ ",
 			"mpv": "🎵",

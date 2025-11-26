@@ -107,6 +107,7 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
+#mpris,
 #clock,
 #battery,
 #cpu,
