@@ -6,5 +6,5 @@ Target = *
 [Action]
 Description = Update waybar custom/updates module
 When = PostTransaction
-Exec = kill -n 37 $(pgrep waybar)
+Exec = /usr/bin/pkill -37 waybar
 
