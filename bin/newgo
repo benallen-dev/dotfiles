@@ -13,8 +13,6 @@ mkdir $name
 cd $name # Would be nice to actually cd in here
 
 go mod init $name
-mkdir cmd
-mkdir pkg
 
 # MAIN
 echo "package main
@@ -25,7 +23,7 @@ import (
 
 func main() {
 	fmt.Println(\"Hello, World!\")
-}" > cmd/main.go
+}" > main.go
 
 # README
 echo "# $name
@@ -33,17 +31,20 @@ echo "# $name
 ## Usage
 
 \`\`\`
-go run cmd/main.go
+go run .
 \`\`\`" > README.md
 
 # Makefile
 echo "run:
-	go run cmd/main.go" > Makefile
+	go run main.go" > Makefile
 
 # Git
 git init
 echo "bin
 tmp" > .gitignore
 git add .
+
+# Air
+air init
 
 # Done
