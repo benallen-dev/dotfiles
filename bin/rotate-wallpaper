@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+MODE="$1" # optional argument: "configonly"
+
 MONITOR="HDMI-A-1"
 WALLDIR="$HOME/yoink/categorised/keep"
 CONFIG="$HOME/.config/hypr/hyprpaper.conf"
@@ -19,9 +21,11 @@ echo -e "\033[90m$MONITOR"
 echo -e "\033[31m$CURRENT_WALL"
 echo -e "\033[32m$RANDOM_WALL\033[0m"
 
-# Set immediately
-hyprctl hyprpaper preload "$RANDOM_WALL"
-hyprctl hyprpaper wallpaper "$MONITOR,$RANDOM_WALL"
+if [[ "$MODE" != "configonly" ]]; then
+	# Set immediately
+	hyprctl hyprpaper preload "$RANDOM_WALL"
+	hyprctl hyprpaper wallpaper "$MONITOR,$RANDOM_WALL"
+fi
 
 # Update hyprpaper.conf
 sed -i "s|^preload = .*|preload = $RANDOM_WALL|" "$CONFIG"

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Deprecated since moving to hyprpaper really
+
 # This script assumes the background is always background.png - because if you only use this to set it, it will be.
 sudo echo "Setting background to $(basename $1)"
 
