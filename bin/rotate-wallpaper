@@ -6,7 +6,7 @@ MONITOR="HDMI-A-1"
 WALLDIR="$HOME/yoink/categorised/keep"
 CONFIG="$HOME/.config/hypr/hyprpaper.conf"
 
-CURRENT_WALL=$(sed -n 's|^preload = \(.*\)|\1|p' "$CONFIG")
+CURRENT_WALL=$(sed -n 's|.*path = \(.*\)|\1|p' "$CONFIG")
 
 # Avoid choosing the current wallpaper again
 while true; do
@@ -23,10 +23,8 @@ echo -e "\033[32m$RANDOM_WALL\033[0m"
 
 if [[ "$MODE" != "configonly" ]]; then
 	# Set immediately
-	hyprctl hyprpaper preload "$RANDOM_WALL"
-	hyprctl hyprpaper wallpaper "$MONITOR,$RANDOM_WALL"
+	hyprctl hyprpaper wallpaper "$MONITOR, $RANDOM_WALL, cover"
 fi
 
 # Update hyprpaper.conf
-sed -i "s|^preload = .*|preload = $RANDOM_WALL|" "$CONFIG"
-sed -i "s|^wallpaper = .*|wallpaper = $MONITOR, $RANDOM_WALL|" "$CONFIG"
+sed -i "s|.*path = .*|\tpath = $RANDOM_WALL|" "$CONFIG"

@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # Deprecated since moving to hyprpaper really
+echo "THIS SCRIPT IS FOR i3 AND FEH! YOU PROBABLY WANT HYPRLAND"
 
 # This script assumes the background is always background.png - because if you only use this to set it, it will be.
 sudo echo "Setting background to $(basename $1)"
