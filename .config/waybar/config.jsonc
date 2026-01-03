@@ -19,6 +19,7 @@
         "memory",
 		"disk",
 		"custom/updates",
+		"custom/weather",
         "clock",
         "tray",
         "custom/power"
@@ -257,5 +258,14 @@
 		"interval": 900,
 		"exec": "$HOME/.config/waybar/scripts/updates.sh"
     },
-
+    "custom/weather": {
+        "format": "{text}",
+		"interval": 600,
+		"signal": 4,
+        "return-type": "text",
+        "max-length": 40,
+        "escape": true,
+		"interval": 900,
+		"exec": "$HOME/.config/waybar/scripts/weather.sh"
+    },
 }
