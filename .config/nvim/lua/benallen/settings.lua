@@ -8,6 +8,7 @@ vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>')	-- Clear search results on E
 
 vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
+vim.o.winborder = "rounded"
 
 vim.opt.list = true
 vim.opt.listchars = {
@@ -28,6 +29,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
 vim.opt.wrap = false
+vim.opt.linebreak = true -- that way if you do :set wrap, it will wrap correctly
 vim.opt.colorcolumn = "80"
 
 vim.opt.foldmethod = "indent"
@@ -52,3 +54,10 @@ function Custom_Foldtext()
 end
 
 vim.o.foldtext = 'v:lua.Custom_Foldtext()'
+
+-- Register templ filetype
+vim.filetype.add({
+  extension = {
+    templ = 'templ',
+  },
+})
