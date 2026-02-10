@@ -3,3 +3,5 @@
 	email = ballen@anwb.nl
 [pull]
 	rebase = true
+[core]
+	excludesfile = /Users/ballen/.gitignore

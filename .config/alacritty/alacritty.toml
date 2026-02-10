@@ -8,12 +8,13 @@ size = 16
 family = "NotoSansM Nerd Font Mono"
 style = "SemiBold"
 
+# italic? yes!
 [font.bold_italic]
-family = "Caskaydia Mono Nerd Font"
+family = "CaskaydiaMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Caskaydia Mono Nerd Font"
+family = "CaskaydiaMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
@@ -23,7 +24,7 @@ style = "Regular"
 [window]
 option_as_alt = "Both"
 dynamic_padding = true
-opacity = 0.8
+opacity = 0.85
 blur = true
 
 [window.padding]

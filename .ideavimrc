@@ -39,12 +39,13 @@ map <leader>r <Action>(RecentFiles)
 map <leader>o <Action>(FileStructurePopup)
 map <leader>f <Action>(SearchEverywhere)
 map <leader>h <Action>(FoldingGroup)
-map <leader>j <Action>(CollapseRegion)
+map <leader>d <Action>(CollapseRegion)
 map <leader>k <Action>(ExpandRegion)
 
+" Adios javadoc comments
+map <leader>jd :%s/\v\n\s*\/\*\*\n(.*[^/]\n)*.*<CR>
 
 " Hold shift while selecting and use J and K to move the selection up and down
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
-
 

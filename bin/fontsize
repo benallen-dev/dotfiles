@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+if [ -z "$1" ]; then
+	local SIZE=$(yq '.font.size' ~/.config/alacritty/alacritty.toml)
+	alacritty msg config "font.size=$SIZE" -w -1
+	echo "Reset font size to $SIZE"
+else
+  alacritty msg config "font.size=$1" -w -1
+  echo "Set font size to $1"
+fi
+
+
