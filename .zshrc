@@ -129,3 +129,6 @@ export NVM_DIR="$HOME/.config/nvm"
 alias l="exa -la --icons --group-directories-first --git"
 alias t="exa -a --tree --icons --group-directories-first"
 
+
+# opencode
+export PATH=/home/benallen/.opencode/bin:$PATH
