@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Update package lists in dotfiles
+When = PostTransaction
+Exec = /home/benallen/bin/update-pkglists
