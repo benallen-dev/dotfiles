@@ -81,6 +81,7 @@ nvidia-utils
 nvtop
 obs-studio
 ollama
+ollama-cuda
 onnxruntime-cuda
 openssh
 os-prober
