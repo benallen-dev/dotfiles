@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+DOTFILES=/home/benallen/dotfiles
+PKGLIST=pkglist.txt
+PKGLIST_AUR=pkglist-aur.txt
+TMP_PATCH=/tmp/dotfiles-staged.patch
+
+pacman -Qqen > $DOTFILES/$PKGLIST
+pacman -Qqem > $DOTFILES/$PKGLIST_AUR
+
+# reset the package list files and ignore errors if any
+sudo -u benallen git -C $DOTFILES reset HEAD $PKGLIST $PKGLIST_AUR >/dev/null 2>&1
+CHANGED_FILES=()
+
+# collect which files have changed
+if ! sudo -u benallen git -C $DOTFILES diff --quiet $PKGLIST; then
+	CHANGED_FILES+=$PKGLIST
+fi
+if ! sudo -u benallen git -C $DOTFILES $GIT diff --quiet $PKGLIST_AUR; then
+	CHANGED_FILES+=$PKGLIST_AUR
+fi
+
+# commit the changed files
+sudo -u benallen git -C $DOTFILES commit -m "pacman: update package lists" --only ${CHANGED_FILES}
