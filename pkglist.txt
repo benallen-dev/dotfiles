@@ -208,7 +208,6 @@ turbostat
 udiskie
 ueberzug
 unzip
-vim
 vlc
 vlc-plugins-all
 vulkan-tools
