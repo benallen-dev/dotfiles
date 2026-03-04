@@ -1,3 +1,9 @@
+-- This file should be included before lazy.nvim
+
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Aesthetics
 vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
