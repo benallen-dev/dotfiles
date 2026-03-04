@@ -25,10 +25,6 @@ vim.opt.wrap = false
 vim.opt.linebreak = true -- that way if you do :set wrap, it will wrap correctly
 vim.opt.colorcolumn = "80"
 
--- Search highlight
-vim.opt.hlsearch = true								-- Highlight search results
-vim.keymap.set('n', '<ESC>', '<cmd>nohlsearch<CR>')	-- Clear search results on ESC
-
 -- Whitespace character display
 vim.opt.list = true
 vim.opt.listchars = {
