@@ -20,3 +20,6 @@ git
 
 # Weather polybar module LAT and LON persistence to avoid calling the geolocation API every time
 **/weather.sh.config
+
+# 99 temp directory
+/tmp
