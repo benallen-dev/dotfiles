@@ -66,6 +66,7 @@ libportal-gtk4
 linux
 linux-firmware
 linux-headers
+luarocks
 man-db
 mesa-utils
 mtools
