@@ -1,10 +1,12 @@
 #!/usr/bin/env zsh
 
+# CONFIG
+MAX_VERBOSE_PACKAGES=4
 DOTFILES=/home/benallen/dotfiles
 PKGLIST=pkglist.txt
 PKGLIST_AUR=pkglist-aur.txt
-TMP_PATCH=/tmp/dotfiles-staged.patch
 
+# Refresh package lists
 pacman -Qqen > $DOTFILES/$PKGLIST
 pacman -Qqem > $DOTFILES/$PKGLIST_AUR
 
@@ -16,9 +18,52 @@ CHANGED_FILES=()
 if ! sudo -u benallen git -C $DOTFILES diff --quiet $PKGLIST; then
 	CHANGED_FILES+=$PKGLIST
 fi
-if ! sudo -u benallen git -C $DOTFILES $GIT diff --quiet $PKGLIST_AUR; then
+if ! sudo -u benallen git -C $DOTFILES diff --quiet $PKGLIST_AUR; then
 	CHANGED_FILES+=$PKGLIST_AUR
 fi
 
-# commit the changed files
-sudo -u benallen git -C $DOTFILES commit -m "pacman: update package lists" --only ${CHANGED_FILES}
+# Build a friendly commit message
+if [[ ${#CHANGED_FILES} -gt 0 ]]; then
+	local COMMIT_MSG="pacman: "
+
+	# Determine which packages have been added and removed
+	ADDED_PKGS=()
+	REMOVED_PKGS=()
+
+	if [[ -n "${CHANGED_FILES[(r)$PKGLIST]}" ]]; then
+		ADDED_PKGS+=($(comm -13 <(git -C $DOTFILES show HEAD:$PKGLIST | sort) <(cat $DOTFILES/$PKGLIST | sort) ))
+		REMOVED_PKGS+=($(comm -23 <(git -C $DOTFILES show HEAD:$PKGLIST | sort) <(cat $DOTFILES/$PKGLIST | sort) ))
+	fi
+
+	if [[ -n "${CHANGED_FILES[(r)$PKGLIST_AUR]}" ]]; then
+		ADDED_PKGS+=($(comm -13 <(git -C $DOTFILES show HEAD:$PKGLIST_AUR | sort) <(cat $DOTFILES/$PKGLIST_AUR | sort) ))
+		REMOVED_PKGS+=($(comm -23 <(git -C $DOTFILES show HEAD:$PKGLIST_AUR | sort) <(cat $DOTFILES/$PKGLIST_AUR | sort) ))
+	fi
+
+	# Count number of changed packages
+	TOTAL=$((${#ADDED_PKGS} + ${#REMOVED_PKGS}))
+
+	if [[ ${#ADDED_PKGS} -gt 0 ]]; then
+		if [[ $TOTAL -gt $MAX_VERBOSE_PACKAGES ]]; then
+			COMMIT_MSG+="added ${#ADDED_PKGS} packages"
+		else
+			COMMIT_MSG+="added ${(j:, :)ADDED_PKGS}"
+		fi
+	fi
+
+	if [[ ${#ADDED_PKGS} -gt 0 && ${#REMOVED_PKGS} -gt 0 ]]; then
+		COMMIT_MSG+=" & "
+	fi
+
+	if [[ ${#REMOVED_PKGS} -gt 0 ]]; then
+		if [[ $TOTAL -gt $MAX_VERBOSE_PACKAGES ]]; then
+			COMMIT_MSG+="removed ${#REMOVED_PKGS} packages"
+		else
+			COMMIT_MSG+="removed ${(j:, :)REMOVED_PKGS}"
+		fi
+	fi
+
+	sudo -u benallen git -C $DOTFILES commit -m "$COMMIT_MSG" --only ${CHANGED_FILES}
+else
+	echo "No changes to pkglists, skipping..."
+fi
