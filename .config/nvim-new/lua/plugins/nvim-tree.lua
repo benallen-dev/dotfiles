@@ -9,8 +9,7 @@ return {
 		'nvim-tree/nvim-tree.lua',
 		lazy = false,
 		keys = {
-			{ "<leader>b", vim.cmd.NvimTreeToggle },
-			{ "<C-b>", vim.cmd.NvimTreeFocus }
+			{ "<leader>b", vim.cmd.NvimTreeToggle, desc = "Toggle filetree" },
 		},
 		opts = {
 			sort_by = "case_sensitive",
