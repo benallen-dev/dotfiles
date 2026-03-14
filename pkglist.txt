@@ -220,11 +220,13 @@ wev
 wf-recorder
 wget
 which
+wireplumber
 wl-clipboard
 wmctrl
 woff2-font-awesome
 xdg-desktop-portal
 xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 xorg-xev
 xorg-xfontsel
 xorg-xrandr
