@@ -147,6 +147,7 @@ stress
 stress-ng
 stylua
 sudo
+swaync
 tcpdump
 tldr
 tmux
