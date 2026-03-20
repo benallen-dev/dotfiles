@@ -43,6 +43,7 @@ graphicsmagick
 grub
 htop
 hyprland
+hyprland-qt-support
 hyprpaper
 hyprshot
 hyprsunset
@@ -61,6 +62,7 @@ lf
 lib32-alsa-plugins
 lib32-libpulse
 lib32-nvidia-utils
+libfdk-aac
 libportal
 libportal-gtk4
 linux
@@ -74,6 +76,7 @@ mtr
 ncdu
 neovim
 nfs-utils
+nodejs
 ntfs-3g
 ntp
 nvidia-open-dkms
@@ -113,10 +116,8 @@ python-dbus
 python-loguru
 python-pyusb
 python-setproctitle
-qt5-3d
 qt5-graphicaleffects
 qt5-imageformats
-qt5-location
 qt5-multimedia
 qt5-networkauth
 qt5-quickcontrols
@@ -131,11 +132,13 @@ qt5-virtualkeyboard
 qt5-wayland
 qt5-x11extras
 qt5-xmlpatterns
+qt6-wayland
 rdesktop
 reflector
 ripgrep
 rofi
 rsync
+ruby
 rustup
 sddm
 showmethekey

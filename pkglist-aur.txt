@@ -5,12 +5,16 @@ envision-xr-git
 gnu-netcat
 imgcat
 input-remapper-git
+obs-backgroundremoval
+obs-backgroundremoval-debug
 pinta
 python312
+qt5-3d
 qt5-charts
 qt5-connectivity
 qt5-datavis3d
 qt5-doc
+qt5-location
 qt5-quick3d
 qt5-remoteobjects
 qt5-scxml
