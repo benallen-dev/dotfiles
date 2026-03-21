@@ -1,6 +1,9 @@
 [general]
 import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 
+[selection]
+save_to_clipboard = true
+
 [font]
 size = 16
 

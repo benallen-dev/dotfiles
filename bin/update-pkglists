@@ -65,5 +65,5 @@ if [[ ${#CHANGED_FILES} -gt 0 ]]; then
 
 	sudo -u benallen git -C $DOTFILES commit -m "$COMMIT_MSG" --only ${CHANGED_FILES}
 else
-	echo "No changes to pkglists, skipping..."
+#	Do nothing
 fi
