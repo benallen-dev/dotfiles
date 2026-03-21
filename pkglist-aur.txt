@@ -6,7 +6,6 @@ gnu-netcat
 imgcat
 input-remapper-git
 obs-backgroundremoval
-obs-backgroundremoval-debug
 pinta
 python312
 qt5-3d
