@@ -20,6 +20,6 @@
       }
     }
   },
-  "model": "opencode/big-pickle",
-  "small_model": "opencode/big-pickle"
+  "model": "opencode/claude-haiku-v4.5",
+  "small_model": "opencode/claude-haiku-v3.5"
 }
