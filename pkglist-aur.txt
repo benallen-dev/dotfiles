@@ -1,7 +1,6 @@
 bluetuith
 ckan
 downgrade
-envision-xr-git
 gnu-netcat
 imgcat
 input-remapper-git
