@@ -5,6 +5,7 @@ arandr
 arch-install-scripts
 base
 base-devel
+bind
 bluez
 bluez-utils
 btop
