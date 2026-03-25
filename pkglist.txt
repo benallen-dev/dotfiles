@@ -66,6 +66,7 @@ lib32-nvidia-utils
 libfdk-aac
 libportal
 libportal-gtk4
+libreoffice-fresh
 linux
 linux-firmware
 linux-headers
