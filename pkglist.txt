@@ -3,7 +3,6 @@ alsa-utils
 ansible
 arandr
 arch-install-scripts
-autoconf-archive
 base
 base-devel
 bind
@@ -26,8 +25,6 @@ dog
 dolphin
 dolphin-plugins
 dosfstools
-dotnet-sdk
-dotnet-targeting-pack
 duf
 efibootmgr
 eigen3
@@ -58,7 +55,6 @@ i3status
 icoutils
 imagemagick
 inetutils
-intltool
 jq
 kcalc
 kdegraphics-thumbnailers
