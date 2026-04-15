@@ -126,7 +126,6 @@ qt5-networkauth
 qt5-quickcontrols
 qt5-quickcontrols2
 qt5-script
-qt5-sensors
 qt5-serialport
 qt5-speech
 qt5-svg
@@ -242,3 +241,5 @@ yq
 yt-dlp
 zip
 zsh
+zsh-autosuggestions
+zsh-completions

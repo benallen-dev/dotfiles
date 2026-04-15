@@ -16,6 +16,7 @@ qt5-location
 qt5-quick3d
 qt5-remoteobjects
 qt5-scxml
+qt5-sensors
 qt5-webchannel
 qt5-webengine
 qt5-websockets
