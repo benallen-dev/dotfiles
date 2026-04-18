@@ -38,7 +38,6 @@ ghostty
 gimp
 git
 git-lfs
-go
 gobject-introspection
 godot
 graphicsmagick

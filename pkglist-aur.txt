@@ -1,4 +1,5 @@
 bluetuith
+bluetuith-debug
 ckan
 downgrade
 gnu-netcat
