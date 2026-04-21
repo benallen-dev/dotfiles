@@ -256,7 +256,8 @@
         "max-length": 40,
         "escape": true,
 		"interval": 900,
-		"exec": "$HOME/.config/waybar/scripts/updates.sh"
+		"exec": "$HOME/.config/waybar/scripts/updates.sh",
+		"on-click": "kill -n 37 $(pgrep waybar)"
     },
     "custom/weather": {
         "format": "{text}",
