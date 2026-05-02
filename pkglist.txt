@@ -139,6 +139,7 @@ rdesktop
 reflector
 ripgrep
 rofi
+rofimoji
 rsync
 ruby
 rustup
@@ -229,6 +230,7 @@ wireplumber
 wl-clipboard
 wmctrl
 woff2-font-awesome
+wtype
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
