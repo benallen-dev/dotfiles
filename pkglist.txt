@@ -11,7 +11,6 @@ bluez-utils
 btop
 ccache
 chafa
-chromium
 cloc
 cuda
 cudnn
@@ -147,6 +146,7 @@ sddm
 showmethekey
 socat
 spectacle
+spotify-launcher
 steam
 stow
 stress
@@ -226,6 +226,7 @@ wev
 wf-recorder
 wget
 which
+wiremix
 wireplumber
 wl-clipboard
 wmctrl
