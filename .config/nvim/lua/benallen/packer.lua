@@ -88,6 +88,8 @@ return require('packer').startup(function(use)
 		run = 'cd formatter && npm i && npm run build',
 	}
 
+	use ('ngynkvn/gotmpl.nvim')
+
 	-- Github Copilot
 	-- use('github/copilot.vim')
 
@@ -148,7 +150,7 @@ return require('packer').startup(function(use)
 			_99.setup({
                 -- provider = _99.Providers.ClaudeCodeProvider,  -- default: OpenCodeProvider
 				--
-				model = 'opencode/big-pickle',
+				model = 'opencode/claude-haiku-4-5',
 				-- logger = {
 				-- 	level = _99.DEBUG,
 				-- 	path = "/tmp/" .. basename .. ".99.debug",

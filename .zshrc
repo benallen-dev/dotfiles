@@ -113,6 +113,10 @@ export PATH=$PATH:/usr/local/go/bin
 #Rust binaries
 export PATH=$PATH:$HOME/.cargo/bin
 
+#PHP
+export PATH="/home/benallen/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/benallen/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
 # opencode
 export PATH=/home/benallen/.opencode/bin:$PATH
 
