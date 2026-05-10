@@ -113,7 +113,6 @@ playerctl
 polybar
 protontricks
 pulseaudio
-pulseaudio-alsa
 python-dbus
 python-loguru
 python-pyusb
