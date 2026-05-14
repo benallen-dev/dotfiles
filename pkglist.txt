@@ -41,7 +41,6 @@ gobject-introspection
 godot
 graphicsmagick
 grub
-gtk-doc
 htop
 hyprland
 hyprland-qt-support
@@ -55,6 +54,7 @@ i3status
 icoutils
 imagemagick
 inetutils
+intltool
 jq
 kcalc
 kdegraphics-thumbnailers
