@@ -41,6 +41,7 @@ gobject-introspection
 godot
 graphicsmagick
 grub
+gtk-doc
 htop
 hyprland
 hyprland-qt-support
