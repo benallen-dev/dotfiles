@@ -145,7 +145,6 @@ sddm
 showmethekey
 socat
 spectacle
-spotify-launcher
 steam
 stow
 stress
