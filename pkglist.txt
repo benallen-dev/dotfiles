@@ -45,6 +45,7 @@ htop
 hyprland
 hyprland-qt-support
 hyprpaper
+hyprpolkitagent
 hyprshot
 hyprsunset
 i3-wm
