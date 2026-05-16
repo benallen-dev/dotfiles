@@ -24,6 +24,7 @@ dog
 dolphin
 dolphin-plugins
 dosfstools
+dotnet-sdk
 duf
 efibootmgr
 eigen3
@@ -73,6 +74,7 @@ linux-headers
 luarocks
 man-db
 mesa-utils
+mono-msbuild
 mtools
 mtr
 ncdu
@@ -105,6 +107,7 @@ otf-monaspace-nerd
 otf-opendyslexic-nerd
 otf-overpass-nerd
 pacman-contrib
+patchelf
 pavucontrol
 picom
 pkgfile
