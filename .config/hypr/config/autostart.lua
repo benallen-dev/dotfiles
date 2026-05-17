@@ -6,8 +6,6 @@
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 hl.on("hyprland.start", function()
-	hl.exec_cmd("alacritty")
-
 	-- Allows GUI apps to ask for elevated privileges
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
@@ -23,9 +21,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("playerctld daemon")
 	-- #hl.exec_cmd("pipewire")
 	-- #hl.exec_cmd("wireplumber")
-
-	-- # WM Event handlers TODO: UPDATE TO USE hl.on("window.active", function(window, active))
---	hl.exec_cmd("/home/benallen/.config/hypr/scripts/event-socket-monitor.sh")
 
 	-- # Screen capture fix
 	hl.exec_cmd("/home/benallen/.config/hypr/scripts/xdph-nuke.sh")
