@@ -1,0 +1,10 @@
+require("config.autostart")
+require("config.animations")
+require("config.env")
+require("config.general")
+require("config.input")
+require("config.keybinds")
+require("config.windowrules")
+
+require("automation.game-mode")
+require("automation.submap-change")
