@@ -55,6 +55,7 @@ i3status
 icoutils
 imagemagick
 inetutils
+iwd
 jq
 kcalc
 kdegraphics-thumbnailers
@@ -146,6 +147,7 @@ sddm
 showmethekey
 socat
 spectacle
+speedtest-cli
 steam
 stow
 stress
