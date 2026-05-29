@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils       = require("utils")
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -15,8 +15,7 @@ local browser     = "zen"
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "SUPER"
-
+local mainMod     = "SUPER"
 
 --  ── Toggle layouts ───────────────────────────────────────────────────────
 hl.bind(mainMod .. " + Y", function()
@@ -29,12 +28,33 @@ hl.bind(mainMod .. " + Y", function()
 		description = "Layout changed"
 	})
 
-	hl.config({ general = { layout = newLayout }})
+	hl.config({ general = { layout = newLayout } })
+end)
+
+hl.bind(mainMod .. " + R", function()
+	local currentSplit = hl.get_config("dwindle.default_split_ratio")
+	local newSplit = currentSplit == 1.0 and 0.75 or 1.0
+
+	local icon = newSplit == 1.0 
+		and "/home/benallen/.config/hypr/assets/tiles-equal-color.png"
+		or "/home/benallen/.config/hypr/assets/tiles-thirds-color.png"
+
+	utils.notify({
+		title = "Switched split ratio to " .. tostring(newSplit),
+		description = "Split ratio changed",
+		timeout = 5000,
+		icon = icon,
+		notificationId = utils.notificationIds.LAYOUT
+	})
+
+	hl.config({ dwindle = { default_split_ratio = newSplit } });
+	hl.dispatch(hl.dsp.layout("movetoroot"))
+	hl.dispatch(hl.dsp.layout("splitratio " .. tostring(newSplit) .. " exact"))
 end)
 
 
 --  ── Toggle gaming submap ─────────────────────────────────────────────────
-hl.bind(mainMod .. " + G", function ()
+hl.bind(mainMod .. " + G", function()
 	local currentMap = hl.get_current_submap()
 	local nextMap = currentMap == "gaming" and "reset" or "gaming"
 
@@ -65,7 +85,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { submap_univ
 -- Hotkeys
 hl.bind(mainMod .. " + M", hl.dsp.exit(), { submap_universal = true })
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+-- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(emojipicker))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$HOME/bin/rotate-wallpaper")) -- TODO: migrate script to lua config?
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot --mode region --clipboard-only"))

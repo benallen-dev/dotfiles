@@ -3,6 +3,7 @@ local M = {}
 M.notificationIds = {
 	DEFAULT = "hyprland-notification",
 	SUBMAP = "hyprland-notification-submap",
+	LAYOUT = "hyprland-notification-layout",
 }
 ---------------------------
 ---- Utility Functions ----
