@@ -1,64 +1,21 @@
 local notification = require("utils.notification")
+local constants = require("keybinds.constants")
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal    = "alacritty"
-local fileManager = "thunar"
-local menu        = "rofi -show drun"
-local emojipicker = "rofimoji --max-recent 0"
-local browser     = "zen"
+local terminal = constants.terminal
+local fileManager = constants.fileManager
+local menu = constants.menu
+local emojipicker = constants.emojipicker
+local browser = constants.browser
 
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod     = "SUPER"
-
---  ── Toggle layouts ───────────────────────────────────────────────────────
-hl.bind(mainMod .. " + Y", function()
-	local currentLayout = hl.get_config("general.layout")
-	local newLayout = currentLayout == "scrolling" and "dwindle" or "scrolling"
-
-	notification.create({
-		timeout = 5000,
-		title = "Switched to " .. newLayout:upper(),
-		description = "Layout changed"
-	})
-
-	hl.config({ general = { layout = newLayout } })
-end)
-
-hl.bind(mainMod .. " + R", function()
-	local currentSplit = hl.get_config("dwindle.default_split_ratio")
-	local newSplit = currentSplit == 1.0 and 0.75 or 1.0
-
-	local icon = newSplit == 1.0 
-		and "/home/benallen/.config/hypr/assets/tiles-equal.png"
-		or "/home/benallen/.config/hypr/assets/tiles-thirds.png"
-
-	notification.create({
-		title = "Switched split ratio to " .. tostring(newSplit),
-		description = "Split ratio changed",
-		timeout = 5000,
-		icon = icon,
-		notificationId = notification.ids.LAYOUT
-	})
-
-	hl.config({ dwindle = { default_split_ratio = newSplit } });
-	hl.dispatch(hl.dsp.layout("movetoroot"))
-	hl.dispatch(hl.dsp.layout("splitratio " .. tostring(newSplit) .. " exact"))
-end)
-
-
---  ── Toggle gaming submap ─────────────────────────────────────────────────
-hl.bind(mainMod .. " + G", function()
-	local currentMap = hl.get_current_submap()
-	local nextMap = currentMap == "gaming" and "reset" or "gaming"
-
-	hl.dispatch(hl.dsp.submap(nextMap))
-end, { submap_universal = true })
+local mainMod = constants.mainMod
 
 --  ── Always-active binds ──────────────────────────────────────────────────
 hl.bind(mainMod .. " + RETURN",    hl.dsp.exec_cmd(terminal),                       { submap_universal = true })
@@ -68,7 +25,7 @@ hl.bind(mainMod .. " + Q",         hl.dsp.window.close(),                       
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(),                            { submap_universal = true })
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen({ action = "toggle" }), { submap_universal = true })
 hl.bind(mainMod .. " + V",         hl.dsp.window.float({ action = "toggle" }),      { submap_universal = true })
-
+hl.bind(mainMod .. " + M",         hl.dsp.exit(),                                   { submap_universal = true })
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +10%"),     { submap_universal = true, locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -10%"),     { submap_universal = true, locked = true, repeating = true })
@@ -81,10 +38,7 @@ hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { submap_univ
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { submap_universal = true, locked = true })
 
 --  ── Base keymap ──────────────────────────────────────────────────────────
--- Hotkeys
-hl.bind(mainMod .. " + M", hl.dsp.exit(), { submap_universal = true })
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd(menu))
--- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(emojipicker))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$HOME/bin/rotate-wallpaper")) -- TODO: migrate script to lua config?
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot --mode region --clipboard-only"))
@@ -112,12 +66,3 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind("SHIFT + TAB", hl.dsp.window.drag(), { mouse = true })
 hl.bind("CTRL + TAB", hl.dsp.window.resize(), { mouse = true })
 
---  ── Gaming submap ────────────────────────────────────────────────────────
-
-
-hl.define_submap("gaming", function ()
-	hl.bind("CTRL + SPACE",    hl.dsp.no_op())  -- Rofi / Menu
-	hl.bind(mainMod .. " + W", hl.dsp.no_op())  -- Wallpaper rotation
-	hl.bind("SHIFT + TAB",     hl.dsp.no_op())  -- Move window
-	hl.bind("CTRL + TAB",      hl.dsp.no_op())  -- Resize window
-end)
