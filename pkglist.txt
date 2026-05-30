@@ -61,6 +61,7 @@ kcalc
 kdegraphics-thumbnailers
 kitty
 krita
+lazygit
 lf
 lib32-alsa-plugins
 lib32-libpulse
@@ -147,7 +148,6 @@ sddm
 showmethekey
 socat
 spectacle
-speedtest-cli
 steam
 stow
 stress
