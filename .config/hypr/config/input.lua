@@ -1,7 +1,3 @@
----------------
----- INPUT ----
----------------
-
 hl.config({
 	input = {
 		kb_layout    = "us",
@@ -18,9 +14,7 @@ hl.config({
 			natural_scroll = false,
 		},
 	},
-})
 
-hl.config({
 	binds = {
 		drag_threshold = 10,
 	},
@@ -31,15 +25,3 @@ hl.config({
 	},
 })
 
--- hl.gesture({
---     fingers = 3,
---     direction = "horizontal",
---     action = "workspace"
--- })
-
--- Example per-device config
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
--- hl.device({
---     name        = "epic-mouse-v1",
---     sensitivity = -0.5,
--- })
