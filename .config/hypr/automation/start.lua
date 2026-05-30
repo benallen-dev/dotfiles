@@ -1,7 +1,3 @@
--------------------
----- AUTOSTART ----
--------------------
-
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
@@ -16,17 +12,11 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("sleep 2 && /home/benallen/bin/rotate-wallpaper configonly") -- sets a new wallpaper for next time
 
-	-- # Daemons
 	-- Daemons
 	hl.exec_cmd("playerctld daemon")
-	-- #hl.exec_cmd("pipewire")
-	-- #hl.exec_cmd("wireplumber")
 
 	-- # Screen capture fix
 	hl.exec_cmd("/home/benallen/.config/hypr/scripts/xdph-nuke.sh")
-
-	-- # Env config
-	hl.exec_cmd("/home/benallen/.config/hypr/scripts/tmux-env.sh tmux")
 
 	-- # Autostart apps
 	hl.exec_cmd("/home/benallen/bin/streamcontroller -b")
