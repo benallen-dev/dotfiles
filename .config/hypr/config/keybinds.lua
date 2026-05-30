@@ -36,8 +36,8 @@ hl.bind(mainMod .. " + R", function()
 	local newSplit = currentSplit == 1.0 and 0.75 or 1.0
 
 	local icon = newSplit == 1.0 
-		and "/home/benallen/.config/hypr/assets/tiles-equal-color.png"
-		or "/home/benallen/.config/hypr/assets/tiles-thirds-color.png"
+		and "/home/benallen/.config/hypr/assets/tiles-equal.png"
+		or "/home/benallen/.config/hypr/assets/tiles-thirds.png"
 
 	utils.notify({
 		title = "Switched split ratio to " .. tostring(newSplit),
