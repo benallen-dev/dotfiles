@@ -1,10 +1,9 @@
-local utils       = require("utils")
+local notification = require("utils.notification")
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
--- Set programs that you use
 local terminal    = "alacritty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
@@ -22,7 +21,7 @@ hl.bind(mainMod .. " + Y", function()
 	local currentLayout = hl.get_config("general.layout")
 	local newLayout = currentLayout == "scrolling" and "dwindle" or "scrolling"
 
-	utils.notify({
+	notification.create({
 		timeout = 5000,
 		title = "Switched to " .. newLayout:upper(),
 		description = "Layout changed"
@@ -39,12 +38,12 @@ hl.bind(mainMod .. " + R", function()
 		and "/home/benallen/.config/hypr/assets/tiles-equal.png"
 		or "/home/benallen/.config/hypr/assets/tiles-thirds.png"
 
-	utils.notify({
+	notification.create({
 		title = "Switched split ratio to " .. tostring(newSplit),
 		description = "Split ratio changed",
 		timeout = 5000,
 		icon = icon,
-		notificationId = utils.notificationIds.LAYOUT
+		notificationId = notification.ids.LAYOUT
 	})
 
 	hl.config({ dwindle = { default_split_ratio = newSplit } });

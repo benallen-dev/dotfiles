@@ -1,13 +1,12 @@
-local utils = require("utils")
-
---  ── Detect games and activate submap ─────────────────────────────────────
+local table = require("utils.table")
 
 local games = { "cs2", "factorio" }
 
+--  ── Detect games and activate submap ─────────────────────────────────────
 hl.on("window.active",
 	--- @param win HL.Window
 	function(win)
-		local isGame = utils.tableContains(games, win.initial_class)
+		local isGame = table.contains(games, win.initial_class)
 		local currentSubmap = hl.get_current_submap() or ""
 
 		if (isGame == true) and (currentSubmap ~= "gaming") then

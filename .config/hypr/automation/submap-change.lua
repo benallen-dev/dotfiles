@@ -1,19 +1,18 @@
-local utils = require("utils")
+local notification = require("utils.notification")
 
 --  ── Submap changes ───────────────────────────────────────────────────────
-
 local submapNotification = {
 	gaming = {
 		title = "Gaming mode",
 		description = "Limited subset of keybinds available",
 		icon = "/home/benallen/.config/hypr/assets/link-gamer-pink.png",
-		notificationId = utils.notificationIds.SUBMAP
+		notificationId = notification.ids.SUBMAP
 	},
 	default = {
 		title = "Normal mode",
 		description = "Keybinds restored",
 		icon = "/home/benallen/.config/hypr/assets/link.png",
-		notificationId = utils.notificationIds.SUBMAP
+		notificationId = notification.ids.SUBMAP
 	},
 }
 
@@ -22,6 +21,6 @@ hl.on("keybinds.submap",
 	function(newSubmapName)
 		local subMap = newSubmapName ~= "" and newSubmapName or "default"
 		-- This will break if the submap is unknown
-		utils.notify(submapNotification[subMap])
+		notification.create(submapNotification[subMap])
 	end
 )

@@ -1,9 +1,9 @@
 local M = {}
 
-M.notificationIds = {
+M.ids = {
 	DEFAULT = "hyprland-notification",
-	SUBMAP = "hyprland-notification-submap",
-	LAYOUT = "hyprland-notification-layout",
+	SUBMAP  = "hyprland-notification-submap",
+	LAYOUT  = "hyprland-notification-layout",
 }
 ---------------------------
 ---- Utility Functions ----
@@ -11,16 +11,16 @@ M.notificationIds = {
 
 --- Create a notification
 --- @param opts table { timeout: number, title: string, description: string, icon: string, notificationId: string }
-function M.notify(opts)
+function M.create(opts)
 	opts = opts or {}
 	local timeout = opts.timeout or 3000
 	local title = opts.title or "Notification"
 	local description = opts.description or ""
 	local icon = opts.icon or "system-run"
-	local notificationId = opts.notificationId or M.notificationIds.DEFAULT
+	local notificationId = opts.notificationId or M.ids.DEFAULT
 
-	if notificationId ~= M.notificationIds.DEFAULT then
-		M.closeNotification(notificationId)
+	if notificationId ~= M.ids.DEFAULT then
+		M.close(notificationId)
 	end
 
 	local cmd = string.format([[notify-send \
@@ -42,7 +42,7 @@ end
 
 --- Close a notification
 --- @param id string
-function M.closeNotification(id)
+function M.close(id)
 	local cmd = string.format([[
 	NOTIFICATION_ID=$(cat /tmp/%s);
 	gdbus call \
@@ -54,15 +54,6 @@ function M.closeNotification(id)
 	]], id)
 
 	hl.exec_cmd(cmd)
-end
-
---- Check if a table contains a string
-
-function M.tableContains(table, query)
-	for _, v in ipairs(table) do
-		if v == query then return true end
-	end
-	return false
 end
 
 return M
