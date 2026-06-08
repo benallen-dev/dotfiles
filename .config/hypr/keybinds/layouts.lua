@@ -20,7 +20,7 @@ end)
 --  ── Toggle split ratios ──────────────────────────────────────────────────
 hl.bind(mainMod .. " + R", function()
 	local currentSplit = hl.get_config("dwindle.default_split_ratio")
-	local newSplit = currentSplit == 1.0 and 0.75 or 1.0
+	local newSplit = currentSplit == 1.0 and 0.70 or 1.0
 
 	local icon = newSplit == 1.0
 		and "/home/benallen/.config/hypr/assets/tiles-equal.png"

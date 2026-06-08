@@ -1,20 +1,14 @@
-local notification = require("utils.notification")
 local constants = require("keybinds.constants")
 
----------------------
----- MY PROGRAMS ----
----------------------
-
+--  ── My programs ──────────────────────────────────────────────────────────
 local terminal = constants.terminal
 local fileManager = constants.fileManager
 local menu = constants.menu
 local emojipicker = constants.emojipicker
 local browser = constants.browser
 
----------------------
----- KEYBINDINGS ----
----------------------
 
+--  ── Keybinds ─────────────────────────────────────────────────────────────
 local mainMod = constants.mainMod
 
 --  ── Always-active binds ──────────────────────────────────────────────────
@@ -46,6 +40,11 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot --mode region --cli
 -- Workspaces
 for i = 1, 10 do
 	local key = i % 10
+	-- F-key variant
+	hl.bind("F" .. key+1,         hl.dsp.focus({ workspace = i }),       { submap_universal = true })
+	hl.bind("SHIFT + F" .. key+1,         hl.dsp.window.move({ workspace = i }),       { submap_universal = true })
+
+	-- mainMod variant
 	hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }),       { submap_universal = true })
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }), { submap_universal = true })
 end
