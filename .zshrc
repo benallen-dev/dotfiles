@@ -161,5 +161,6 @@ export NVM_DIR="$HOME/.config/nvm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias l="exa -la --icons --group-directories-first --git"
-alias t="exa -a --tree --icons --group-directories-first"
+alias t="exa -a --tree --icons --group-directories-first --git --ignore-glob '.git'"

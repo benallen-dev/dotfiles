@@ -25,7 +25,7 @@ function version_prompt() {
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local versions='$(version_prompt)'
 
-PROMPT="%{$fg[green]%}╭─%n@%m %{$reset_color%}%{$fg[yellow]%}in %~ %{$reset_color%}${versions}${versions:+ }${git_branch}
+PROMPT="%{$fg[green]%}╭─%n@%m %{$reset_color%}%{$fg[yellow]%}in %~%{$reset_color%}${versions:+ }${versions}${versions:+ }${git_branch}
 %{$fg[green]%}╰\$ %{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}on "
