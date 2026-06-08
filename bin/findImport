@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if [[ -z "$1" ]]; then
+  echo "Argument is required"
+  exit 1
+fi
+
+#rg -UP 'import\s*\{[^}]*'"$1"'[^}]*\}\s*from \s*[\"](@anwb/platform-shared)'
+rg -UP 'import\s*\{[^}]*'"$1"'[^}]*\}\s*from \s*[\"](?!@anwb/platform-core)'

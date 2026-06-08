@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+opencode run --model github-copilot/claude-haiku-4.5 "Analyze the following staged git diff and generate a single-line conventional
+commit message.
+
+Staged changes: !`git diff --staged`
+
+Rules:
+
+- Output ONLY the commit message, nothing else
+- Format: <type>: <description>
+- Type must be one of: feat, fix, refactor, docs, test, chore, style, perf, ci,
+  build
+- Description should be concise (under 50 characters)
+- Start description with lowercase letter
+- No period at the end
+- No extra text, explanations, or formatting
+- If multiple types apply, prioritize: feat > fix > refactor > others
+
+Generate the message now:"
+

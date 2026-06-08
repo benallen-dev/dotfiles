@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+FILENAME=$1
+STRING=$2
+
+
+find . -name "$FILENAME" -not -path "*/node_modules/*" -type f -exec grep -L "$STRING" {} \;
+
+

@@ -7,3 +7,11 @@
 	autoSetupRemote = true
 [pull]
 	rebase = true
+[alias]
+	bugs = !git log -i -E --grep="fix|bug|broken" --name-only --format='' | sort | uniq -c | sort -nr | grep -v package.json | grep -v pnpm-lock.yaml | head -20
+	churn = !git log --format=format: --name-only --since=\"1 year ago\" | sort | uniq -c | sort -nr | grep -v package.json | grep -v pnpm-lock.yaml | head -20
+	commitcount = !git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c
+	contributors = shortlog -sn --no-merges
+	top20 = !echo "Showing top 20 contributors" && git shortlog -sn --no-merges | head -20
+	fires = !git log --oneline --since=\"1 year ago\" | grep -iE 'revert|hotfix|emergency|rollback'
+	hist = !git log --all --decorate --oneline --graph $(git branch --format="%(refname:short)")

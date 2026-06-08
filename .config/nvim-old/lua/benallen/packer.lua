@@ -1,15 +1,17 @@
+-- Packer configuration
+
 -- Only required if you have packer configured as `opt`
 -- vim.cmd [[packadd packer.nvim]]
 
 local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-		vim.cmd [[packadd packer.nvim]]
-		return true
-	end
-	return false
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -27,11 +29,9 @@ return require('packer').startup(function(use)
 	use({
 		'ellisonleao/gruvbox.nvim',
 		as = 'gruvbox',
-	})
-
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin"
+		config = function()
+			vim.cmd('colorscheme gruvbox')
+		end
 	})
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -43,14 +43,26 @@ return require('packer').startup(function(use)
 	-- Git interaction
 	use("tpope/vim-fugitive")
 
-	-- LSP (Mason for installing servers)
-	use { 'mason-org/mason.nvim' }
+	-- LSP
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v2.x',
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' },    -- Required
+			{ 'mason-org/mason.nvim'},
+			{ 'mason-org/mason-lspconfig.nvim' }, -- Optional
 
-	-- Autocompletion
-	use { 'hrsh7th/nvim-cmp' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
-	use { 'L3MON4D3/LuaSnip', run = "make install_jsregexp" }
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' },                       -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },                   -- Required
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },    -- function argument hints
+			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" }, -- Required
+
+			-- LSP sources
+			{ 'hrsh7th/cmp-copilot' }, -- Integrate copilot.vim
+		}
+	}
 
 	-- Status updates for LSP
 	use('j-hui/fidget.nvim')
@@ -60,8 +72,8 @@ return require('packer').startup(function(use)
 	use('nvim-tree/nvim-web-devicons')
 
 	-- -- Inline colour previews
-	use('brenoprata10/nvim-highlight-colors')
 	-- use('NvChad/nvim-colorizer.lua')
+	use('brenoprata10/nvim-highlight-colors')
 
 	-- Status line
 	use {
@@ -86,6 +98,9 @@ return require('packer').startup(function(use)
 
 	-- Toggle comments
 	use('tpope/vim-commentary')
+
+	-- Go templ support
+	use('tjdevries/templ.nvim')
 
 	-- treesitter-context
 	use('nvim-treesitter/nvim-treesitter-context')
@@ -115,11 +130,7 @@ return require('packer').startup(function(use)
 		end
 	}
 
-	use {
-		'romainl/vim-cool',
-	}
-
 	if packer_bootstrap then
-		require('packer').sync()
+	  require('packer').sync()
 	end
 end)

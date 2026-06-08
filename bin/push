@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+message="${@:1}"
+echo "$message" >> ~/.stack
+

@@ -1,0 +1,59 @@
+#!/bin/bash
+# Read all input lines into arrays
+declare -a labels
+declare -a values
+max_value=0
+while IFS=' ' read -r value label; do
+    labels+=("$label")
+    values+=("$value")
+    if (( value > max_value )); then
+        max_value=$value
+    fi
+done
+
+# Constants
+bar_width=80
+char_filled="█"
+char_empty="░"
+# Print the graph
+
+# Function to calculate color based on percentage (0-100)
+get_color() {
+    local percent=$1
+    
+    if (( percent > 90 )); then
+		echo -e "\033[38;5;208m"  # Orange
+    elif (( percent > 70 )); then
+        echo -e "\033[33m"  # Yellow
+    else
+        echo -e "\033[32m"  # Green
+    fi
+}
+
+printf "\n"
+
+for i in "${!values[@]}"; do
+    value=${values[$i]}
+    label=${labels[$i]}
+    
+    # Calculate bar length (proportional to max value)
+    bar_length=$((( (value * bar_width) / max_value) ))
+    
+    # Calculate percentage of max value
+    percentage=$(( (value * 100) / max_value ))
+
+	color=$(get_color $percentage)
+    reset="\033[0m"  # Reset color
+    
+    # Generate filled and empty portions
+    filled=$(printf "%${bar_length}s" | tr ' ' "$char_filled")
+    empty=$(printf "%$((bar_width - bar_length + 1))s" | tr ' ' "$char_empty")
+    
+    # Print the bar with color
+    printf "%8s |${color}%s${reset}%s %d\n" "$label" "$filled" "$empty" "$value"
+done
+
+# Print axis
+printf "%8s |" ""
+printf "%$((bar_width + 1))s\n" | tr ' ' "─"
+printf "\n"

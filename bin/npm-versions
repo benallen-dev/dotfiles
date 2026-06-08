@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+PKGNAME=$1
+
+pnpm ls -r | grep $PKGNAME | sort | uniq

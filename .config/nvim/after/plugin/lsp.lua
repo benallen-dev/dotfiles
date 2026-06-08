@@ -1,14 +1,5 @@
-require('mason').setup()
-
 vim.diagnostic.config({
 	signs = {
-		-- text = {
-		-- 	[vim.diagnostic.severity.ERROR] = '',
-		-- 	[vim.diagnostic.severity.WARN] = '',
-		-- },
-		-- linehl = {
-		-- 	[vim.diagnostic.severity.ERROR] = 'DiagnosticError',
-		-- },	
 		numhl = {
 			[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
 			[vim.diagnostic.severity.WARN] = 'DiagnosticWarn',
@@ -26,7 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
 		vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
 		vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-		vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+		vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ max_width = 80, max_height = 30 }) end, opts)
 		vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 		vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
 		vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
@@ -58,33 +49,10 @@ vim.lsp.enable({
 	'htmx',
 	'hyprls',
 	'lua_ls',
+	'marksman',
 	'tailwindcss',
 	'templ',
 	'ts_ls',
 	-- 'pylsp',
 	-- 'pyright',
-})
-
-local cmp = require('cmp')
-cmp.setup({
-	mapping = {
-		['<Tab>'] = cmp.mapping.confirm({ select = true }),
-		['<Down>'] = cmp.mapping.select_next_item(),
-		['<Up>'] = cmp.mapping.select_prev_item(),
-	},
-	window = {
-		completion = {
-			border = 'rounded',
-			bg = 'none',
-			winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenu,CursorLine:PmenuSel,Search:None",
-		},
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'nvim_lsp_signature_help' },
-		{ name = 'luasnip' },
-	},
-	formatting= {
-		format = require("nvim-highlight-colors").format
-	}
 })

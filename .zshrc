@@ -124,3 +124,4 @@ esac
 
 #export PATH=/Users/p292980/dotfiles/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+alias gitroot='cd $(git rev-parse --show-toplevel)'

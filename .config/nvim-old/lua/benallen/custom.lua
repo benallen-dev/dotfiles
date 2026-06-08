@@ -13,20 +13,3 @@ vim.api.nvim_create_user_command('Asciify', function(opts)
 
 	vim.api.nvim_buf_set_lines(0, linenum, linenum, false, vim.fn.split(output, "\n"))
 end, { nargs = 1})
-
-vim.api.nvim_create_user_command('BlockComment', function(opts)
-	local text = opts.args
-	local prefix = "/* ── "
-	local suffix = " */"
-	local total_length = 80
-	
-	-- Calculate how many dashes we need at the end
-	local available_for_dashes = total_length - #prefix - #text - #suffix + 1
-	
-	-- Build the line
-	local line = prefix .. text .. " " .. string.rep("─", available_for_dashes) .. suffix
-	
-	local linenum = vim.api.nvim_win_get_cursor(0)[1]
-	vim.api.nvim_buf_set_lines(0, linenum, linenum, false, {line})
-end, { nargs = '+' })
-

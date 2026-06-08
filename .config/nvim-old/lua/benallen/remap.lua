@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 -- Delete into system clipboard
 vim.keymap.set("n", "<leader>d", "\"+d", { desc = "Delete into system clipboard" })
 
@@ -17,8 +20,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("x", "<leader>pp", "\"_dP", { desc = "Paste without overwriting \" register" })
 
 -- Yank into system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into system clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank into system clipboard" })
+vim.keymap.set({"n", "v"}, "<leader>y", "\"+y", { desc = "Yank into system clipboard" })
+-- vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank into system clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank into system clipboard" })
 
 -- Replace symbol
@@ -47,6 +50,3 @@ vim.keymap.set("n", "<leader>we", function()
 	vim.cmd("edit")
 end, {desc = "Write and reopen"})
 
-vim.keymap.set("n", "<leader>k", function()
-	vim.lsp.buf.code_action()
-end, {desc = "List code actions"})

@@ -1,7 +1,17 @@
-require("benallen.packer")
+-- Set leader key before lazy.nvim loads (required for keybindings)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Set essential display options before plugins load
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
+
+require("benallen.lazy")
 require("benallen.custom")
 require("benallen.settings")
 require("benallen.remap")
+require("benallen.commit")
 
 -- Shamelessly stolen from ThePrimagen. Again.
 local augroup = vim.api.nvim_create_augroup

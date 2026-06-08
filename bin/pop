@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+# print the last line from ~/.stack
+sed -n '$p' ~/.stack
+# removes that line from the file
+sed -i '' '$ d' ~/.stack
+

@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+rm pnpm-lock.yaml
+pnpm i
+git add pnpm-lock.yaml
