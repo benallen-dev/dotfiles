@@ -11,6 +11,7 @@ bluez-utils
 btop
 ccache
 chafa
+chromium
 cloc
 cuda
 cudnn
