@@ -1,27 +1,31 @@
 hl.config({
 	input = {
-		kb_layout    = "us",
-		kb_variant   = "",
-		kb_model     = "",
-		kb_options   = "",
-		kb_rules     = "",
+		kb_layout               = "us",
+		kb_variant              = "",
+		kb_model                = "",
+		kb_options              = "",
+		kb_rules                = "",
 
-		follow_mouse = 1,
+		follow_mouse            = 1,
 
-		sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity             = 0, -- -1.0 - 1.0, 0 means no modification.
 
-		touchpad     = {
+		touchpad                = {
 			natural_scroll = false,
 		},
 	},
 
 	binds = {
 		drag_threshold = 10,
+		pass_mouse_when_bound = true,
 	},
 
 	cursor = {
 		no_warps = true,
 		persistent_warps = false,
 	},
-})
 
+	misc = {
+		middle_click_paste = false,
+	},
+})
