@@ -1,3 +1,4 @@
+local tables = require("utils.table")
 local constants = require("keybinds.constants")
 local notification = require("utils.notification")
 
@@ -39,3 +40,50 @@ hl.bind(mainMod .. " + R", function()
 	hl.dispatch(hl.dsp.layout("splitratio " .. tostring(newSplit) .. " exact"))
 end)
 
+--  ── Changing gaps ────────────────────────────────────────────────────────
+local gaps = "normal"
+
+hl.bind(mainMod .. " + T", function()
+	local cycle = {
+		normal = {
+			gaps_in = 5,
+			gaps_out = 20,
+		},
+		spacious = {
+			gaps_in = 50,
+			gaps_out = 100,
+		},
+		chunky = {
+			gaps_in  = {
+				top = 100,
+				right = 150,
+				bottom = 100,
+				left = 150,
+			},
+			gaps_out = {
+				top = 150,
+				right = 200,
+				bottom = 150,
+				left = 200,
+			}
+		}
+	}
+
+	local next = tables.next(cycle, gaps)
+	if next then
+		gaps = next
+		hl.config({
+			general = {
+				gaps_in = cycle[gaps].gaps_in,
+				gaps_out = cycle[gaps].gaps_out,
+			}
+		})
+
+		notification.create({
+			title = "Set gaps to " .. gaps,
+			description = "Layout gaps changed",
+			timeout = 5000,
+			notificationId = notification.ids.LAYOUT
+		})
+	end
+end)

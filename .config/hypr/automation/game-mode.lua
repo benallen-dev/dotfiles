@@ -1,4 +1,4 @@
-local table = require("utils.table")
+local tables = require("utils.table")
 
 local games = { "cs2", "factorio" }
 
@@ -6,7 +6,7 @@ local games = { "cs2", "factorio" }
 hl.on("window.active",
 	--- @param win HL.Window
 	function(win)
-		local isGame = table.contains(games, win.initial_class)
+		local isGame = tables.contains(games, win.initial_class)
 		local currentSubmap = hl.get_current_submap() or ""
 
 		if (isGame == true) and (currentSubmap ~= "gaming") then
