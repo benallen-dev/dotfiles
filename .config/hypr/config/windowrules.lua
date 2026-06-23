@@ -38,7 +38,20 @@ hl.window_rule({
 	match = {
 		class = "org.kde.kcalc"
 	},
+	pseudo = true,
+})
+
+hl.window_rule({
+	name = "float Thunar file operations",
+	match = {
+		initial_title = "File Operation Progress",
+		initial_class = "thunar",
+	},
 	float = true,
+	animation = "slide left",
+	size = { 950, 100 },
+	move = { "20", "60" },
+	--move = { "((monitor_w*1)-window_w-20)", "60" },
 })
 
 hl.window_rule({
@@ -47,8 +60,8 @@ hl.window_rule({
 		title = "Picture-in-Picture",
 	},
 	float = true,
-	content = "video",
 	pin = true,
+	content = "video",
 	animation = "popin",
 	keep_aspect_ratio = true,
 	size = { 1280, 720 },
