@@ -79,3 +79,12 @@ hl.window_rule({
 	pin = true,
 	move = { "((monitor_w*1)-window_w-20)", "((monitor_h*1)-window_h-20)" },
 })
+
+hl.window_rule({
+	name = "Fix xwayland popup blur",
+	match = {
+		initial_class = "",
+		initial_title = "",
+	},
+	no_blur = true,
+})
