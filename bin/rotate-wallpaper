@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# This needs to be moved to Lua I think
+
 MODE="$1" # optional argument: "configonly"
 
 MONITOR="HDMI-A-1"
@@ -8,23 +10,30 @@ CONFIG="$HOME/.config/hypr/hyprpaper.conf"
 
 CURRENT_WALL=$(sed -n 's|.*path = \(.*\)|\1|p' "$CONFIG")
 
-# Avoid choosing the current wallpaper again
-while true; do
-	RANDOM_WALL=$(find "$WALLDIR" -type f | shuf -n 1)
-	[[ "'$RANDOM_WALL'" != "'$CURRENT_WALL'" ]] && break
-done
+function random_wallpaper() {
+	local WALL
+	while true; do # Avoid choosing the current wallpaper again
+		WALL=$(find "$WALLDIR" -type f | shuf -n 1)
+		[[ "'$WALL'" != "'$CURRENT_WALL'" ]] && break
+	done
+
+	echo "$WALL"
+}
 
 MONITOR=$(hyprctl monitors | grep "Monitor" | awk '{print $2}' | head -n1)
+RANDOM_WALL=$(random_wallpaper)
 
 # Print what we're doing to the terminal
-echo -e "\033[90m$MONITOR"
-echo -e "\033[31m$CURRENT_WALL"
-echo -e "\033[32m$RANDOM_WALL\033[0m"
-
-if [[ "$MODE" != "configonly" ]]; then
-	# Set immediately
-	hyprctl hyprpaper wallpaper "$MONITOR, $RANDOM_WALL, cover"
-fi
+echo -e "\033[90m$MONITOR\033[0m"
+echo -e "Current:           \033[31m$CURRENT_WALL\033[0m"
+echo -e "Applied to config: \033[32m$RANDOM_WALL\033[0m"
 
 # Update hyprpaper.conf
 sed -i "s|.*path = .*|\tpath = $RANDOM_WALL|" "$CONFIG"
+
+if [[ "$MODE" != "configonly" ]]; then
+	# Pick a new wallpaper to set now
+	RANDOM_WALL=$(random_wallpaper)
+	hyprctl hyprpaper wallpaper "$MONITOR, $RANDOM_WALL, cover"
+	echo -e "Applied now:       \033[34m$RANDOM_WALL\033[0m"
+fi
