@@ -111,6 +111,7 @@ otf-overpass-nerd
 pacman-contrib
 pavucontrol
 picom
+pinta
 pkgfile
 pkgstats
 playerctl
@@ -136,6 +137,7 @@ qt5-virtualkeyboard
 qt5-wayland
 qt5-x11extras
 qt5-xmlpatterns
+qt6-tools
 qt6-wayland
 rdesktop
 reflector

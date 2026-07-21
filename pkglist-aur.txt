@@ -5,7 +5,6 @@ gnu-netcat
 imgcat
 input-remapper-git
 obs-backgroundremoval
-pinta
 python312
 reboot-arch-btw
 spotify
