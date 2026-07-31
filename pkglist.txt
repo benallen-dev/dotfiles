@@ -29,6 +29,7 @@ duf
 efibootmgr
 eigen3
 eza
+fd
 feh
 ffmpegthumbs
 firefox
