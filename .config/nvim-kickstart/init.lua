@@ -380,7 +380,7 @@ do
 	})
 
 	-- Add fugitive, beacuse it's great
-  vim.pack.add({ gh "tpope/vim-fugitive" })
+	vim.pack.add({ gh("tpope/vim-fugitive") })
 	vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 	vim.keymap.set("n", "<leader>gf", function()
 		vim.cmd("Git pull")
@@ -411,7 +411,6 @@ do
 	--
 	-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 	vim.pack.add({ gh("folke/tokyonight.nvim") })
-	vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
 	---@diagnostic disable-next-line: missing-fields
 	require("tokyonight").setup({
 		styles = {
@@ -419,8 +418,9 @@ do
 		},
 	})
 
+	vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
 	require("gruvbox").setup({
-		terminal_colors = true, -- add neovim terminal colors
+		-- terminal_colors = true, -- add neovim terminal colors
 		undercurl = true,
 		underline = true,
 		bold = true,
