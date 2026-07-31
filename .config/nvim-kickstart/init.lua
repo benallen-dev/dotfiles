@@ -149,7 +149,7 @@ do
 
 	-- Configure how new splits should be opened
 	vim.o.splitright = true
-	vim.o.splitbelow = true
+	vim.o.splitbelow = false
 
 	vim.o.winborder = "rounded"
 
@@ -378,6 +378,16 @@ do
 			changedelete = { text = "~" }, ---@diagnostic disable-line: missing-fields
 		},
 	})
+
+	-- Add fugitive, beacuse it's great
+  vim.pack.add({ gh "tpope/vim-fugitive" })
+	vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+	vim.keymap.set("n", "<leader>gf", function()
+		vim.cmd("Git pull")
+	end)
+	vim.keymap.set("n", "<leader>gp", function()
+		vim.cmd("Git push")
+	end)
 
 	-- Useful plugin to show you pending keybinds.
 	vim.pack.add({ gh("folke/which-key.nvim") })
