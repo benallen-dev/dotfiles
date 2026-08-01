@@ -1,4 +1,16 @@
-vim.pack.add({'https://github.com/theprimeagen/harpoon'})
+print("Hello from plugins.harpoon")
+local gh = require("utils").gh
+
+-- Check if plenary is available, abort and show error otherwise
+local ok, _ = pcall(require, "plenary.path")
+if not ok then
+	print("Plenary not available, skipping harpoon setup")
+  return
+end
+
+-- Harpoon for quick shortcuts
+-- Implicitly depends on plenary.path, so plenary needs to be installed first
+vim.pack.add({ gh("theprimeagen/harpoon") })
 
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")

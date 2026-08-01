@@ -1,4 +1,4 @@
-print("Hello from mappings")
+-- These mappings were 'borrowed' from ThePrimeagen
 
 -- Move selected line / block of text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

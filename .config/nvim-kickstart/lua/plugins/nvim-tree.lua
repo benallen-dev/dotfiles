@@ -1,17 +1,20 @@
+local gh = require("utils").gh
+
+-- Nvim-tree for a tree file viewer
 local gwidth = vim.api.nvim_list_uis()[1].width
 local gheight = vim.api.nvim_list_uis()[1].height
 local width = math.floor(gwidth * 0.8)
 local height = math.floor(gheight * 0.8)
 
-vim.pack.add({'https://github.com/nvim-tree/nvim-tree.lua'})
-vim.pack.add({'https://github.com/nvim-tree/nvim-web-devicons'})
+vim.pack.add({ gh("nvim-tree/nvim-tree.lua") })
+vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
 
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	actions = {
 		open_file = {
 			quit_on_open = true,
-		}
+		},
 	},
 	view = {
 		relativenumber = true,
@@ -23,8 +26,8 @@ require("nvim-tree").setup({
 				height = height,
 				row = (gheight - height) * 0.4,
 				col = (gwidth - width) * 0.5,
-			}
-		}
+			},
+		},
 	},
 	renderer = {
 		root_folder_label = false,
@@ -49,7 +52,7 @@ require("nvim-tree").setup({
 				folder = {
 					enable = false,
 					color = true,
-				}
+				},
 			},
 			glyphs = {
 				default = "",
@@ -77,7 +80,6 @@ require("nvim-tree").setup({
 				},
 			},
 		},
-
 	},
 	modified = {
 		enable = true,
@@ -94,7 +96,7 @@ require("nvim-tree").setup({
 		git_ignored = false,
 		custom = {
 			"^\\.git$",
-		}
+		},
 	},
 })
 
