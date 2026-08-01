@@ -41,46 +41,23 @@ hl.bind(mainMod .. " + R", function()
 end)
 
 --  ── Changing gaps ────────────────────────────────────────────────────────
-local gaps = "normal"
+local layout = constants.defaultLayout
 
 hl.bind(mainMod .. " + T", function()
-	local cycle = {
-		normal = {
-			gaps_in = 5,
-			gaps_out = 20,
-		},
-		spacious = {
-			gaps_in = 50,
-			gaps_out = 100,
-		},
-		chunky = {
-			gaps_in  = {
-				top = 100,
-				right = 150,
-				bottom = 100,
-				left = 150,
-			},
-			gaps_out = {
-				top = 150,
-				right = 200,
-				bottom = 150,
-				left = 200,
-			}
-		}
-	}
+	local layouts = constants.layouts
 
-	local next = tables.next(cycle, gaps)
+	local next = tables.next(layouts, layout)
 	if next then
-		gaps = next
+		layout = next
 		hl.config({
 			general = {
-				gaps_in = cycle[gaps].gaps_in,
-				gaps_out = cycle[gaps].gaps_out,
+				gaps_in = layouts[layout].gaps_in,
+				gaps_out = layouts[layout].gaps_out,
 			}
 		})
 
 		notification.create({
-			title = "Set gaps to " .. gaps,
+			title = "Set gaps to " .. layout,
 			description = "Layout gaps changed",
 			timeout = 5000,
 			notificationId = notification.ids.LAYOUT
