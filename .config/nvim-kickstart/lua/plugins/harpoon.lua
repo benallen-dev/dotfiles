@@ -1,4 +1,3 @@
-print("Hello from plugins.harpoon")
 local gh = require("utils").gh
 
 -- Check if plenary is available, abort and show error otherwise

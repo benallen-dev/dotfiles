@@ -11,8 +11,7 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-requireAll("options")
-
+-- I want to load this in a particular order
 require("core.diagnostic")
 require("core.telescope")
 require("core.lsp")
@@ -20,7 +19,8 @@ require("core.formatting")
 require("core.autocomplete")
 require("core.treesitter")
 
+requireAll("options")
 requireAll("autocommands")
 requireAll("commands")
-requireAll("keymaps")
 requireAll("plugins")
+requireAll("keymaps")
