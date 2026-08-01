@@ -1,3 +1,6 @@
+-- Enable 24-bit color
+vim.o.termguicolors = true
+
 -- Show highlighted column
 vim.o.colorcolumn = "80"
 -- vim.o.textwidth = 80
@@ -10,7 +13,6 @@ vim.o.relativenumber = true
 -- Show which line your cursor is on
 vim.o.cursorline = true
 vim.o.cursorlineopt = "line,number"
-
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10

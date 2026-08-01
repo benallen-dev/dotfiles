@@ -7,7 +7,6 @@ local width = math.floor(gwidth * 0.8)
 local height = math.floor(gheight * 0.8)
 
 vim.pack.add({ gh("nvim-tree/nvim-tree.lua") })
-vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
 
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -88,7 +87,6 @@ require("nvim-tree").setup({
 	},
 	update_focused_file = {
 		enable = true,
-		update_root = false,
 		ignore_list = {},
 	},
 	filters = {

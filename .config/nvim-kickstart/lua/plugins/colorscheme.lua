@@ -16,7 +16,7 @@ require("tokyonight").setup({
 
 vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
 require("gruvbox").setup({
-	-- terminal_colors = true, -- add neovim terminal colors
+	terminal_colors = false,
 	undercurl = true,
 	underline = true,
 	bold = true,

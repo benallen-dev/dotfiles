@@ -52,7 +52,13 @@ do
 		--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 		--   },
 		-- },
-		-- pickers = {}
+		--
+		pickers = {
+			colorscheme = {
+				enable_preview = true,
+				ignore_builtins = true,
+			},
+		},
 		extensions = {
 			["ui-select"] = { require("telescope.themes").get_dropdown() },
 		},
