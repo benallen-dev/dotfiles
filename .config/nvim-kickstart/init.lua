@@ -101,8 +101,7 @@ do
 	-- Set to true if you have a Nerd Font installed and selected in the terminal
 	vim.g.have_nerd_font = true
 
-  require('options')
-
+	require("options")
 end
 
 -- ============================================================
@@ -304,16 +303,6 @@ do
 			changedelete = { text = "~" }, ---@diagnostic disable-line: missing-fields
 		},
 	})
-
-	-- Add fugitive, beacuse it's great
-	vim.pack.add({ gh("tpope/vim-fugitive") })
-	vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-	vim.keymap.set("n", "<leader>gf", function()
-		vim.cmd("Git pull")
-	end)
-	vim.keymap.set("n", "<leader>gp", function()
-		vim.cmd("Git push")
-	end)
 
 	-- Useful plugin to show you pending keybinds.
 	vim.pack.add({ gh("folke/which-key.nvim") })
@@ -1000,6 +989,6 @@ end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require('plugins')
-require('mappings')
-require('commands')
+require("plugins")
+require("mappings")
+require("commands")
