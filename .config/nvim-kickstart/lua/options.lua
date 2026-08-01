@@ -61,7 +61,15 @@ vim.o.winborder = "rounded"
 --   See `:help lua-options`
 --   and `:help lua-guide-options`
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = {
+	extends = "",
+	lead = " ",
+	nbsp = "␣",
+	precedes = "",
+	tab = " ",
+	trail = "·",
+}
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = "split"
@@ -76,3 +84,12 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+vim.opt.tabstop = 4
+-- vim.o.softtabstop = 4
+-- vim.o.shiftwidth = 4
+-- vim.o.expandtab = false
+
+vim.o.wrap = false
+vim.o.linebreak = true -- that way if you do :set wrap, it will wrap correctly
+vim.o.colorcolumn = "80"
