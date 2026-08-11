@@ -34,6 +34,8 @@ function M.next(values, current)
 		table.insert(keys, k)
 	end
 
+	table.sort(keys)
+
 	for i, k in ipairs(keys) do
 		if k == current then
 			return keys[(i % #keys) + 1]

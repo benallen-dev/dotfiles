@@ -7,12 +7,25 @@ local defaultLayout = constants.layouts[constants.defaultLayout]
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-	output = "",
+	output = "HDMI-A-1",
 	mode = "preferred",
 	position = "auto",
 	scale = 1,
 })
 
+hl.monitor({
+	output = "DP-2",
+	mode = "3440x1440",
+	mirror = "HDMI-A-1",
+})
+
+-- Catch-all for if anything changes
+hl.monitor({
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = 1,
+})
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
