@@ -1,6 +1,7 @@
 bluetuith
 ckan
 downgrade
+eigen3
 gnu-netcat
 imgcat
 input-remapper-git

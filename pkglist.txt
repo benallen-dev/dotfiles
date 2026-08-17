@@ -27,7 +27,6 @@ dolphin-plugins
 dosfstools
 duf
 efibootmgr
-eigen3
 eza
 fd
 feh
