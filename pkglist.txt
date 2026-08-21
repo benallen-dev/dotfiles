@@ -111,12 +111,13 @@ pacman-contrib
 pavucontrol
 picom
 pinta
+pipewire-alsa
+pipewire-pulse
 pkgfile
 pkgstats
 playerctl
 polybar
 protontricks
-pulseaudio
 python-dbus
 python-loguru
 python-pyusb
