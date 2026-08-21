@@ -9,6 +9,7 @@ bind
 bluez
 bluez-utils
 btop
+calf
 ccache
 chafa
 cloc
@@ -25,6 +26,7 @@ dolphin
 dolphin-plugins
 dosfstools
 duf
+easyeffects
 efibootmgr
 eza
 fd
@@ -73,6 +75,7 @@ libreoffice-fresh
 linux
 linux-firmware
 linux-headers
+lsp-plugins
 luarocks
 man-db
 mesa-utils
