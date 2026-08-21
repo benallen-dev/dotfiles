@@ -122,6 +122,7 @@ python-dbus
 python-loguru
 python-pyusb
 python-setproctitle
+qpwgraph
 qt5-graphicaleffects
 qt5-imageformats
 qt5-multimedia
