@@ -7,6 +7,7 @@ imgcat
 input-remapper-git
 obs-backgroundremoval
 python312
+qt5-virtualkeyboard
 reboot-arch-btw
 spotify
 ttf-ms-win11-auto

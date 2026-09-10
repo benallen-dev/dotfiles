@@ -137,7 +137,6 @@ qt5-serialport
 qt5-speech
 qt5-svg
 qt5-tools
-qt5-virtualkeyboard
 qt5-wayland
 qt5-x11extras
 qt5-xmlpatterns
