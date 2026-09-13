@@ -10,7 +10,8 @@ M.browser = "zen"
 --  ── Keybinds ─────────────────────────────────────────────────────────────
 M.mainMod = "SUPER"
 
-M.defaultLayout = "cinema_tight"
+-- M.defaultLayout = "cinema_tight"
+M.defaultLayout = "jellyfin"
 M.layouts = {
 	normal = {
 		gaps_in = 5,
@@ -50,6 +51,24 @@ M.layouts = {
 			right = 100,
 			bottom = 200,
 			left = 100,
+		},
+	},
+	youtube = {
+		gaps_in = 10,
+		gaps_out = {
+			top = 600,
+			right = 905,
+			bottom = 200,
+			left = 905,
+		},
+	},
+	jellyfin = {
+		gaps_in = 10,
+		gaps_out = {
+			top = 600,
+			right = 755,
+			bottom = 200,
+			left = 755,
 		},
 	},
 }

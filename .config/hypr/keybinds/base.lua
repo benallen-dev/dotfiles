@@ -40,9 +40,6 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot --mode region --cli
 -- Workspaces
 for i = 1, 10 do
 	local key = i % 10
-	-- F-key variant
-	hl.bind("F" .. key+1,         hl.dsp.focus({ workspace = i }),       { submap_universal = true })
-	hl.bind("SHIFT + F" .. key+1,         hl.dsp.window.move({ workspace = i }),       { submap_universal = true })
 
 	-- mainMod variant
 	hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }),       { submap_universal = true })
