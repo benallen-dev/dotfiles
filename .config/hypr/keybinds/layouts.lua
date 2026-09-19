@@ -82,7 +82,7 @@ _G.setGaps = function(layoutName)
 	})
 end
 
-hl.bind(mainMod .. " + T", function()
+hl.bind(mainMod .. " + SHIFT + T", function()
 	local layouts = constants.layouts
 
 	local next = tables.next(layouts, layout)
@@ -102,4 +102,8 @@ hl.bind(mainMod .. " + T", function()
 			notificationId = notification.ids.LAYOUT,
 		})
 	end
+end)
+
+hl.bind(mainMod .. " + T", function()
+	hl.exec_cmd("$HOME/.config/rofi/layouts.sh")
 end)
