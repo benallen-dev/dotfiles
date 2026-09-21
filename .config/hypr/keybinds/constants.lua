@@ -24,14 +24,14 @@ M.layouts = {
 	chunky = {
 		gaps_in = {
 			top = 100,
-			right = 150,
+			right = 100,
 			bottom = 100,
-			left = 150,
+			left = 100,
 		},
 		gaps_out = {
-			top = 150,
+			top = 200,
 			right = 200,
-			bottom = 150,
+			bottom = 200,
 			left = 200,
 		},
 	},
