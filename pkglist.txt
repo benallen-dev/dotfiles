@@ -3,6 +3,7 @@ alsa-utils
 ansible
 arandr
 arch-install-scripts
+awww
 base
 base-devel
 bind
