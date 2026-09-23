@@ -1,4 +1,5 @@
 local constants = require("keybinds.constants")
+local wallpaper = require("utils.wallpaper")
 
 --  ── My programs ──────────────────────────────────────────────────────────
 local terminal = constants.terminal
@@ -35,6 +36,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { submap_univ
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(emojipicker))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$HOME/bin/rotate-wallpaper")) -- TODO: migrate script to lua config?
+hl.bind(mainMod .. " + D", wallpaper.toggleDimmed)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot --mode region --clipboard-only"))
 
 -- Workspaces
