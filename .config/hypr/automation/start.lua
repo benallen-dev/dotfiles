@@ -9,8 +9,9 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("swaync")
 	hl.exec_cmd("hyprsunset")
-	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("sleep 2 && /home/benallen/bin/rotate-wallpaper configonly") -- sets a new wallpaper for next time
+	-- hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("awww-daemon")
+	-- hl.exec_cmd("sleep 2 && /home/benallen/bin/rotate-wallpaper configonly") -- sets a new wallpaper for next time
 
 	-- Daemons
 	hl.exec_cmd("playerctld daemon")

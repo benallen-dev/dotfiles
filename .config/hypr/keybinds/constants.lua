@@ -10,8 +10,7 @@ M.browser = "zen"
 --  ── Keybinds ─────────────────────────────────────────────────────────────
 M.mainMod = "SUPER"
 
--- M.defaultLayout = "cinema_tight"
-M.defaultLayout = "jellyfin"
+M.defaultLayout = "cinema_tight"
 M.layouts = {
 	normal = {
 		gaps_in = 5,

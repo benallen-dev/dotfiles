@@ -1,9 +1,13 @@
+-- local notification = require("utils.notification")
+
 local M = {}
+
+-- seed RNG
+math.randomseed(os.time())
 
 -- TODO: Move to constants
 local MONITOR = "HDMI-A-1"
 local WALLDIR = os.getenv("HOME") .. "/yoink/categorised/keep/"
-local HYPRPAPER_CONFIG = os.getenv("HOME") .. "/.config/hypr/hyprpaper.conf"
 
 -- HELPERS
 local function splitPath(path)
@@ -49,16 +53,18 @@ end
 
 -- WALLPAPER HELPERS START HERE
 
-local function getWallFromIpc()
-	local f = io.popen("hyprctl hyprpaper listactive")
+local function getWallFromQuery()
+	local f = io.popen("awww query")
 
 	if f then
 		for line in f:lines() do
-			local start = line:find(MONITOR .. ": ", 1, true)
-			if start then
-				f:close()
-				return line:sub(start + #MONITOR + 2)
+			local type, config = line:match(".*currently displaying: (.*): (.*)")
+
+			if type == "image" then
+				return config
 			end
+
+			return nil
 		end
 
 		f:close()
@@ -97,8 +103,48 @@ local function getOriginalWall(path)
 	return ogPath
 end
 
-local function set_wallpaper(path)
-	os.execute('hyprctl hyprpaper wallpaper "' .. MONITOR .. "," .. path .. '" &')
+---Returns path to a random wallpaper
+---@return string? path path to a random wallpaper
+local function getRandomWall()
+	local p = io.popen("ls -A " .. WALLDIR)
+
+	if p == nil then
+		return
+	end
+
+	local files = {}
+	for file in p:lines() do
+		table.insert(files, file)
+	end
+	p:close()
+
+	return WALLDIR .. files[math.random(#files)]
+end
+
+---Set wallpaper with awww img.
+---@param path string Path to image
+---@param transition? "none"|"simple"|"fade"|"left"|"right"|"top"|"bottom"|"wipe"|"wave"|"grow"|"center"|"any"|"outer"|"random" Transition type. Default "fade"
+---@param duration? number
+local function set_wallpaper(path, transition, duration)
+	transition = transition or "fade"
+	duration = duration or 1.0
+
+	if transition == "wipe" then
+		local angle = math.random(0, 359)
+		transition = transition .. " --transition-angle " .. angle
+	end
+
+
+
+	local cmd = {
+		"awww img",
+		"--transition-type " .. transition,
+		"--transition-duration " .. tostring(duration),
+		path,
+		"&",
+	}
+
+	os.execute(table.concat(cmd, " "))
 end
 
 -- EXPORTED FUNCTIONS START HERE
@@ -108,21 +154,37 @@ end
 local function updateDimmed(ws)
 	local windows = hl.get_workspace_windows(ws)
 
-	local currentWall = getWallFromIpc()
+	local currentWall = getWallFromQuery()
+
+	if currentWall == nil then
+		-- hl.notification.create({
+		-- 	text = "could not get current wall",
+		-- 	timeout = 4000,
+		-- })
+		return
+	end
 
 	if #windows == 0 and currentWall:find("%.dimmed%.") then
 		local newWall = getOriginalWall(currentWall)
-		set_wallpaper(newWall)
+		set_wallpaper(newWall, "fade", 0.5)
 		return
 	elseif #windows > 0 and not currentWall:find("%.dimmed%.") then
 		local newWall = getDimmedWall(currentWall)
-		set_wallpaper(newWall)
+		set_wallpaper(newWall, "fade", 0.5)
 		return
 	end
 end
 
 local function toggleDimmed()
-	local currentWall = getWallFromIpc()
+	local currentWall = getWallFromQuery()
+
+	if currentWall == nil then
+		-- hl.notification.create({
+		-- 	text = "could not get current wall",
+		-- 	timeout = 4000,
+		-- })
+		return
+	end
 
 	if currentWall:find("%.dimmed%.") then
 		local newWall = getOriginalWall(currentWall)
@@ -135,7 +197,20 @@ local function toggleDimmed()
 	end
 end
 
+local function randomWallpaper()
+	local newWall = getRandomWall()
+	if newWall then
+		set_wallpaper(newWall, "wipe", 2.0)
+	else
+		hl.notification.create({
+			text = "Could not get random wallpaper",
+			timeout = 2000,
+		})
+	end
+end
+
 M.toggleDimmed = toggleDimmed
 M.updateDimmed = updateDimmed
+M.randomWallpaper = randomWallpaper
 
 return M
