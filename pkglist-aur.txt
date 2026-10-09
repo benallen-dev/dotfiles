@@ -10,6 +10,7 @@ qt5-virtualkeyboard
 reboot-arch-btw
 spotify
 ttf-ms-win11-auto
+ttf-orbitron
 ttf-weather-icons
 watchman-bin
 yay
