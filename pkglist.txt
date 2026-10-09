@@ -14,8 +14,6 @@ calf
 ccache
 chafa
 cloc
-cuda
-cudnn
 dfu-util
 dhcpcd
 discord
@@ -93,9 +91,6 @@ nvidia-settings
 nvidia-utils
 nvtop
 obs-studio
-ollama
-ollama-cuda
-onnxruntime-cuda
 openssh
 os-prober
 otf-aurulent-nerd

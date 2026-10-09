@@ -5,7 +5,6 @@ eigen3
 gnu-netcat
 imgcat
 input-remapper-git
-obs-backgroundremoval
 python312
 qt5-virtualkeyboard
 reboot-arch-btw
