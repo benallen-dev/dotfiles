@@ -9,8 +9,8 @@
 
 local suppressMaximuzeRule = hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
-	name           = "suppress-maximize-events",
-	match          = { class = ".*" },
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
 	suppress_event = "maximize",
 })
@@ -30,13 +30,12 @@ hl.window_rule({
 	no_focus = true,
 })
 
-
 --  ── Custom Rules ─────────────────────────────────────────────────────────
 
 hl.window_rule({
 	name = "float-kcalc",
 	match = {
-		class = "org.kde.kcalc"
+		class = "org.kde.kcalc",
 	},
 	pseudo = true,
 })
@@ -87,4 +86,14 @@ hl.window_rule({
 		initial_title = "",
 	},
 	no_blur = true,
+})
+
+-- Vibe coded swaync styling
+hl.layer_rule({
+	name = "swaync-blur",
+	match = {
+		namespace = "^(swaync-notification-window|swaync-control-center)$",
+	},
+	blur = true,
+	-- ignore_alpha = 0.2,	 -- clicks pass through transparent padding
 })

@@ -1,4 +1,4 @@
--- local notification = require("utils.notification")
+local notification = require("utils.notification")
 
 local M = {}
 
@@ -77,14 +77,18 @@ local function getDimmedWall(path)
 		return path
 	end
 
-	local dir, basename, ext = splitPath(path)
+	local _, basename, ext = splitPath(path)
 
-	local dimmedPath = dir .. basename .. ".dimmed." .. ext
+	-- local dimmedPath = dir .. basename .. ".dimmed." .. ext
 	local tmpPath = "/tmp/" .. basename .. ".dimmed." .. ext
 
 	-- return dimmedPath
-	if not exists(dimmedPath) then
+	if not exists(tmpPath) then
 		-- let's use /tmp while we test
+		notification.create({
+			title = "Dimming wallpaper",
+			description = tmpPath
+		})
 		dim_image(path, tmpPath, 0.6)
 	end
 

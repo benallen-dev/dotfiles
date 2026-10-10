@@ -1,64 +1,50 @@
 :root {
-  --cc-bg: rgba(24, 25, 32, 0.85);
-  --noti-border-color: rgba(255, 255, 255, 0.08);
-  --noti-bg: 32, 34, 44;
-  --noti-bg-alpha: 0.92;
-  --noti-bg-darker: rgb(22, 23, 30);
-  --noti-bg-hover: rgba(255, 255, 255, 0.06);
-  --noti-bg-focus: rgba(255, 255, 255, 0.09);
-  --noti-close-bg: rgba(255, 255, 255, 0.08);
-  --noti-close-bg-hover: rgba(255, 255, 255, 0.18);
+  --cc-bg: rgba(46, 46, 46, 0.7);
+  --noti-border-color: rgba(255, 255, 255, 0.15);
+  --noti-bg: 48, 48, 48;
+  --noti-bg-alpha: 0.8;
+  --noti-bg-darker: rgb(38, 38, 38);
+  --noti-bg-hover: rgb(56, 56, 56);
+  --noti-bg-focus: rgba(68, 68, 68, 0.6);
+  --noti-close-bg: rgb(78, 78, 78);
+  --noti-close-bg-hover: rgb(94, 94, 94);
   --text-color: rgb(255, 255, 255);
-  --text-color-disabled: rgb(150, 154, 170);
-  --accent: rgb(122, 162, 247);
-  --critical: rgb(247, 118, 142);
-  --low: rgb(120, 124, 140);
-  /* Glass pane — smoked dark so white text stays legible over light bg */
-  --glass-hi: rgba(16, 18, 26, 0.62);
-  --glass-lo: rgba(16, 18, 26, 0.44);
-  --glass-border: rgba(255, 255, 255, 0.22);
-  --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 0.20);
-  /* Edge-illumination glows */
-  --glow-normal: rgba(122, 162, 247, 0.5);
-  --glow-critical: rgba(247, 118, 142, 0.55);
-  --glow-low: rgba(160, 168, 190, 0.3);
-  --notification-icon-size: 56px;
+  --text-color-disabled: rgb(150, 150, 150);
+  --bg-selected: rgb(0, 128, 255);
+  --notification-icon-size: 64px;
   --notification-app-icon-size: calc(var(--notification-icon-size) / 3);
   --notification-group-icon-size: 32px;
   --border: 1px solid var(--noti-border-color);
-  --border-radius: 0px;
-  /* Title text */
-  --font-size-title: 24px;
-  --font-family-title: "Caskaydia Mono Nerd Font Mono", "DejaVu Sans Condensed", sans-serif;
-  /* Time (ago) text */
-  --font-size-time: 14px;
-  --font-family-time: sans-serif;
-  /* Body text */
-  --font-size-body: 20px;
-  --font-family-body: "DejaVu Sans Condensed", sans-serif;
-  /* Transitions (note: the rules reference the misspelled 'tranistion' names) */
-  --hover-tranistion: background 0.18s ease-in-out, border-color 0.18s ease-in-out;
+  --border-radius: 12px;
+  --notification-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  --font-size-body: 15px;
+  --font-size-summary: 16px;
+  /* Deprecated variables (because of their typos). Keeeping them around for backwards compatibility. */
+  --hover-tranistion: background 0.15s ease-in-out;
   --group-collapse-tranistion: opacity 400ms ease-in-out;
+  --hover-transition: var(--hover-tranistion);
+  --group-collapse-transition: var(--group-collapse-tranistion);
 }
 
 /* Fallback for older CSS themes */
-@define-color cc-bg rgba(24, 25, 32, 0.85);
-@define-color noti-border-color rgba(255, 255, 255, 0.08);
-@define-color noti-bg rgba(32, 34, 44, 0.92);
-@define-color noti-bg-opaque rgb(32, 34, 44);
-@define-color noti-bg-darker rgb(22, 23, 30);
-@define-color noti-bg-hover rgba(255, 255, 255, 0.06);
-@define-color noti-bg-hover-opaque rgb(56, 58, 68);
-@define-color noti-bg-focus rgba(255, 255, 255, 0.09);
-@define-color noti-close-bg rgba(255, 255, 255, 0.08);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.18);
+/* Fallback for older CSS themes */
+@define-color cc-bg rgba(46, 46, 46, 0.7);
+@define-color noti-border-color rgba(255, 255, 255, 0.15);
+@define-color noti-bg rgba(48, 48, 48, 0.8);
+@define-color noti-bg-opaque rgb(48, 48, 48);
+@define-color noti-bg-darker rgb(38, 38, 38);
+@define-color noti-bg-hover rgb(56, 56, 56);
+@define-color noti-bg-hover-opaque rgb(56, 56, 56);
+@define-color noti-bg-focus rgba(68, 68, 68, 0.6);
+@define-color noti-close-bg rgba(255, 255, 255, 0.1);
+@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
-@define-color text-color-disabled rgb(150, 154, 170);
-@define-color bg-selected rgb(122, 162, 247);
+@define-color text-color-disabled rgb(150, 150, 150);
+@define-color bg-selected rgb(0, 128, 255);
 
 notificationwindow, blankwindow {
   background: transparent;
-  background-color: transparent;
 }
 
 .close-button {
@@ -74,13 +60,11 @@ notificationwindow, blankwindow {
   border: none;
   min-width: 24px;
   min-height: 24px;
-  transition: var(--hover-tranistion);
 }
 
 .close-button:hover {
   box-shadow: none;
   background: var(--noti-close-bg-hover);
-  color: white;
   transition: var(--hover-tranistion);
   border: none;
 }
@@ -99,37 +83,29 @@ notificationwindow, blankwindow {
 }
 
 .notification-row .notification-background .notification {
-  /* The actual notification — frosted glass pane */
+  /* The actual notification */
   border-radius: var(--border-radius);
-  border: 1px solid var(--glass-border);
-  border-left: 3px solid var(--glass-border);
+  border: var(--border);
   padding: 0;
   transition: var(--hover-tranistion);
-  background: linear-gradient(135deg, var(--glass-hi), var(--glass-lo));
-  box-shadow: var(--glass-inner);
+  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
 }
 
 .notification-row .notification-background .notification.low {
   /* Low Priority Notification */
-  border-left: 3px solid var(--low);
-  box-shadow: inset 16px 0 22px -10px var(--glow-low), var(--glass-inner);
 }
 
 .notification-row .notification-background .notification.normal {
   /* Normal Priority Notification */
-  border-left: 3px solid var(--accent);
-  box-shadow: inset 16px 0 22px -10px var(--glow-normal), var(--glass-inner);
 }
 
 .notification-row .notification-background .notification.critical {
   /* Critical Priority Notification */
-  border-left: 3px solid var(--critical);
-  box-shadow: inset 16px 0 26px -8px var(--glow-critical), var(--glass-inner);
 }
 
 .notification-row .notification-background .notification .notification-default-action {
   /* The large action that also displays the notification summary and body */
-  padding: 14px 16px;
+  padding: 4px;
   margin: 0;
   box-shadow: none;
   background: transparent;
@@ -160,9 +136,9 @@ notificationwindow, blankwindow {
   /* Notification Primary Image */
   -gtk-icon-filter: none;
   -gtk-icon-size: var(--notification-icon-size);
-  border-radius: 0;
+  border-radius: 100px;
   /* Size in px */
-  margin: 2px 10px 2px 2px;
+  margin: 4px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .app-icon {
@@ -180,22 +156,16 @@ notificationwindow, blankwindow {
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
   /* Notification summary/title */
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-title);
-  font-weight: 400;
-  /* text-transform: uppercase; */
-  /* letter-spacing: 0.5px; */
-  /* min-height: 34px; */
-  padding-top: 2px;
+  font-size: var(--font-size-summary);
+  font-weight: bold;
   background: transparent;
   color: var(--text-color);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.20);
+  text-shadow: none;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
   /* Notification time-ago */
-  font-size: var(--font-size-time);
-  font-family: var(--font-family-time);
+  font-size: var(--font-size-summary);
   font-weight: bold;
   background: transparent;
   color: var(--text-color);
@@ -206,13 +176,9 @@ notificationwindow, blankwindow {
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
   /* Notification body */
   font-size: var(--font-size-body);
-  font-family: var(--font-family-body);
   font-weight: normal;
-  line-height: 1.3;
-  /* margin-top: 2px; */
   background: transparent;
   color: var(--text-color);
-  opacity: 0.92;
   text-shadow: none;
 }
 
@@ -354,11 +320,9 @@ notificationwindow, blankwindow {
 
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
-  background: linear-gradient(135deg, var(--glass-hi), var(--cc-bg));
+  background: var(--cc-bg);
   color: var(--text-color);
   border-radius: var(--border-radius);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner);
 }
 
 .control-center .control-center-list-placeholder {
@@ -372,7 +336,7 @@ notificationwindow, blankwindow {
 }
 
 .control-center .control-center-list .notification {
-  box-shadow: none;
+  box-shadow: var(--notification-shadow);
 }
 
 .control-center .control-center-list .notification .notification-default-action,
@@ -396,7 +360,7 @@ notificationwindow, blankwindow {
 }
 
 .floating-notifications .notification {
-  box-shadow: var(--glass-inner);
+  box-shadow: none;
 }
 
 /*** Widgets ***/
@@ -425,14 +389,12 @@ notificationwindow, blankwindow {
 }
 
 .widget-dnd switch {
-  /* border-radius: var(--border-radius); */
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   margin-left: 8px;
 }
 
 .widget-dnd switch slider {
-  /* border-radius: var(--border-radius); */
-  border-radius: 100%;
+  border-radius: var(--border-radius);
 }
 
 /* Label widget */

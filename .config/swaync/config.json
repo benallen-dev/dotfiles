@@ -23,7 +23,7 @@
   "relative-timestamps": true,
   "control-center-width": 500,
   "control-center-height": 600,
-  "notification-window-width": 500,
+  "notification-window-width": 620,
   "keyboard-shortcuts": true,
   "notification-grouping": true,
   "image-visibility": "when-available",
@@ -56,6 +56,7 @@
     "inhibitors",
     "title",
     "dnd",
+    "mpris",
     "notifications"
   ],
   "widget-config": {
@@ -80,7 +81,7 @@
       "text": "Label Text"
     },
     "mpris": {
-      "blacklist": [],
+      "blacklist": ["playerctld"],
       "autohide": false,
       "show-album-art": "always",
       "loop-carousel": false

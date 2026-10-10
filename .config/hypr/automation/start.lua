@@ -1,4 +1,5 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
+local wallpaper = require("utils.wallpaper-awww")
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 hl.on("hyprland.start", function()
@@ -23,4 +24,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("/home/benallen/bin/streamcontroller -b")
 	hl.exec_cmd("udiskie --tray")
 	hl.exec_cmd("steam -silent")
+
+	wallpaper.randomWallpaper()
 end)
