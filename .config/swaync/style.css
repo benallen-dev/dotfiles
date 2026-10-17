@@ -10,7 +10,8 @@
   --noti-close-bg-hover: rgba(255, 255, 255, 0.18);
   --text-color: rgb(255, 255, 255);
   --text-color-disabled: rgb(150, 154, 170);
-  --accent: rgb(122, 162, 247);
+  --accent-old: rgb(122, 162, 247);
+  --accent: rgb(122, 247, 162);
   --critical: rgb(247, 118, 142);
   --low: rgb(120, 124, 140);
   /* Glass pane — smoked dark so white text stays legible over light bg */
