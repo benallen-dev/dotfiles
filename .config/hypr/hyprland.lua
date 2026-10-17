@@ -7,6 +7,7 @@ require("config.windowrules")
 require("keybinds.base")
 require("keybinds.gaming-submap")
 require("keybinds.layouts")
+require("keybinds.hot-commands")
 
 require("automation.start")
 require("automation.game-mode")
