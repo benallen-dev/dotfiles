@@ -24,7 +24,7 @@ function M.create(opts)
 	local timeout = opts.timeout or 3000
 	local title = opts.title or "Notification"
 	local description = opts.description or ""
-	local icon = opts.icon or "system-run"
+	local icon = opts.icon or "dialog-information"
 	local urgency = opts.urgency or "normal"
 	local notificationId = opts.notificationId or M.ids.DEFAULT
 

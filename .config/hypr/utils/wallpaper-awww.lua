@@ -71,7 +71,12 @@ local function getWallFromQuery()
 	end
 end
 
-local function getDimmedWall(path)
+---@overload fun(path: string): string
+---@overload fun(path: string, skipGeneration: boolean): string|nil
+---@return string|nil
+local function getDimmedWall(path, skipGeneration)
+	-- TODO Refactor boolean trap
+	skipGeneration = skipGeneration or false
 	-- If path already contains ".dimmed." return path
 	-- TODO Maybe just check if it's in WALLDIR_DIMMED
 	if path:find(".dimmed.", 1, true) then
@@ -79,11 +84,13 @@ local function getDimmedWall(path)
 	end
 
 	local _, basename, ext = splitPath(path)
-	-- local dimmedPath = dir:gsub("keep", "dimmed") .. basename .. ".dimmed." .. ext
 	local dimmedPath = WALLDIR_DIMMED .. basename .. ".dimmed." .. ext
 
 	if not exists(dimmedPath) then
-		-- let's use /dimmed while we test
+		if skipGeneration then
+			return nil
+		end
+
 		notification.create({
 			title = "Dimming wallpaper",
 			description = dimmedPath,
@@ -95,7 +102,7 @@ local function getDimmedWall(path)
 end
 
 local function getOriginalWall(path)
-	-- If path already contains ".dimmed." return path
+	-- If path doesn't contain ".dimmed." return path
 	if not path:find(".dimmed.", 1, true) then
 		return path
 	end
@@ -148,8 +155,8 @@ local function set_wallpaper(path, transition, duration)
 	os.execute(table.concat(cmd, " "))
 end
 
--- EXPORTED FUNCTIONS START HERE
---
+--  ── EXPORTED FUNCTIONS START HERE ────────────────────────────────────────
+
 -- Switches automatically between dimmed and original wallpapers depending
 -- on how many windows exist in the workspace
 local function updateDimmed(ws)
@@ -166,7 +173,7 @@ local function updateDimmed(ws)
 		set_wallpaper(newWall, "fade", 0.5)
 		return
 	elseif #windows > 0 and not currentWall:find("%.dimmed%.") then
-		local newWall = getDimmedWall(currentWall)
+		local newWall = getDimmedWall(currentWall) -- will return string because param 2 is unset
 		set_wallpaper(newWall, "fade", 0.5)
 		return
 	end
@@ -230,7 +237,67 @@ local function randomWallpaper()
 	end
 end
 
-M.getActiveWall = getActiveWall
+-- Finds the currently active wallpaper and its dimmed counterpart, then moves both to the archive folder
+local function archiveCurrent()
+	local wallpaper = getWallFromQuery()
+	local dimmedWallpaper
+
+	if wallpaper == nil then
+		notification.create({
+			title = "Wallpaper not found",
+			description = wallpaper,
+			icon = "dialog-warning",
+			timeout = 5000,
+		})
+		return nil
+	end
+
+	if wallpaper:find("%.dimmed%.") then
+		dimmedWallpaper = wallpaper
+		wallpaper = getOriginalWall(wallpaper)
+	else
+		dimmedWallpaper = getDimmedWall(wallpaper, true) -- TODO: Refactor boolean trap
+	end
+
+	if wallpaper ~= nil then
+		randomWallpaper()
+
+		-- Move undimmed image
+		local newPath = wallpaper:gsub("keep", "archive")
+		local moveOk, moveError = os.rename(wallpaper, newPath)
+		if not moveOk then
+			notification.create({
+				title = "Could not archive wallpaper",
+				description = moveError,
+				icon = "dialog-error",
+				timeout = 5000,
+			})
+		end
+
+		-- Delete dimmed image if it exists
+		if dimmedWallpaper then
+			local delOk, delError = os.remove(dimmedWallpaper)
+			if not delOk then
+				notification.create({
+					title = "Could not delete dimmed wallpaper",
+					description = delError,
+					icon = "dialog-error",
+					timeout = 5000,
+				})
+			end
+		end
+
+		if moveOk then
+			notification.create({
+				title = "Wallpaper archived",
+				description = wallpaper,
+				timeout = 5000,
+			})
+		end
+	end
+end
+
+M.archiveCurrent = archiveCurrent
 M.toggleDimmed = toggleDimmed
 M.updateDimmed = updateDimmed
 M.randomWallpaper = randomWallpaper
