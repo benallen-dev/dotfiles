@@ -10,13 +10,22 @@ M.ids = {
 ---------------------------
 
 --- Create a notification
---- @param opts table { timeout: number, title: string, description: string, icon: string, notificationId: string }
+--- @class NotifyOpts
+--- @field timeout? number
+--- @field title? string
+--- @field description? string
+--- @field icon? string
+--- @field notificationId? string
+--- @field urgency? '"critical"'|'"normal"'|'"low"'
+
+--- @param opts NotifyOpts|nil
 function M.create(opts)
 	opts = opts or {}
 	local timeout = opts.timeout or 3000
 	local title = opts.title or "Notification"
 	local description = opts.description or ""
 	local icon = opts.icon or "system-run"
+	local urgency = opts.urgency or "normal"
 	local notificationId = opts.notificationId or M.ids.DEFAULT
 
 	if notificationId ~= M.ids.DEFAULT then
@@ -25,12 +34,14 @@ function M.create(opts)
 
 	local cmd = string.format([[notify-send \
 		--expire-time=%d \
+		--urgency=%s \
 		--icon=%s \
 		--print-id \
 		'%s' '%s' \
 		> /tmp/%s
 		]],
 		timeout,
+		urgency,
 		icon,
 		title,
 		description,
