@@ -161,10 +161,6 @@ local function updateDimmed(ws)
 	local currentWall = getWallFromQuery()
 
 	if currentWall == nil then
-		-- hl.notification.create({
-		-- 	text = "could not get current wall",
-		-- 	timeout = 4000,
-		-- })
 		return
 	end
 
@@ -186,6 +182,7 @@ local function toggleDimmed()
 		-- hl.notification.create({
 		-- 	text = "could not get current wall",
 		-- 	timeout = 4000,
+		--
 		-- })
 		return
 	end
@@ -202,17 +199,41 @@ local function toggleDimmed()
 end
 
 local function randomWallpaper()
+	local ws = hl.get_active_workspace()
+	if ws == nil then
+		notification.create({
+			title = "Could not get active workspace",
+			icon = "dialog-error",
+		})
+		return
+	end
+	local windows = hl.get_workspace_windows(ws)
+
 	local newWall = getRandomWall()
+	if newWall == nil then
+		notification.create({
+			title = "Could not get new Wallpaper",
+			icon = "dialog-error",
+		})
+		return
+	end
+
+	if #windows > 0 then
+		newWall = getDimmedWall(newWall)
+	end
+
 	if newWall then
-		set_wallpaper(newWall, "wipe", 2.0)
+		set_wallpaper(newWall, "random", 1.0)
 	else
-		hl.notification.create({
-			text = "Could not get random wallpaper",
+		notification.create({
+			title = "Could not get random wallpaper",
+			icon = "dialog-warning",
 			timeout = 2000,
 		})
 	end
 end
 
+M.getActiveWall = getActiveWall
 M.toggleDimmed = toggleDimmed
 M.updateDimmed = updateDimmed
 M.randomWallpaper = randomWallpaper
