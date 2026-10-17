@@ -6,8 +6,8 @@ local M = {}
 math.randomseed(os.time())
 
 -- TODO: Move to constants
-local MONITOR = "HDMI-A-1"
 local WALLDIR = os.getenv("HOME") .. "/yoink/categorised/keep/"
+local WALLDIR_DIMMED = os.getenv("HOME") .. "/yoink/categorised/dimmed/"
 
 -- HELPERS
 local function splitPath(path)
@@ -73,26 +73,25 @@ end
 
 local function getDimmedWall(path)
 	-- If path already contains ".dimmed." return path
+	-- TODO Maybe just check if it's in WALLDIR_DIMMED
 	if path:find(".dimmed.", 1, true) then
 		return path
 	end
 
 	local _, basename, ext = splitPath(path)
+	-- local dimmedPath = dir:gsub("keep", "dimmed") .. basename .. ".dimmed." .. ext
+	local dimmedPath = WALLDIR_DIMMED .. basename .. ".dimmed." .. ext
 
-	-- local dimmedPath = dir .. basename .. ".dimmed." .. ext
-	local tmpPath = "/tmp/" .. basename .. ".dimmed." .. ext
-
-	-- return dimmedPath
-	if not exists(tmpPath) then
-		-- let's use /tmp while we test
+	if not exists(dimmedPath) then
+		-- let's use /dimmed while we test
 		notification.create({
 			title = "Dimming wallpaper",
-			description = tmpPath
+			description = dimmedPath,
 		})
-		dim_image(path, tmpPath, 0.6)
+		dim_image(path, dimmedPath, 0.6)
 	end
 
-	return tmpPath
+	return dimmedPath
 end
 
 local function getOriginalWall(path)
@@ -137,8 +136,6 @@ local function set_wallpaper(path, transition, duration)
 		local angle = math.random(0, 359)
 		transition = transition .. " --transition-angle " .. angle
 	end
-
-
 
 	local cmd = {
 		"awww img",
