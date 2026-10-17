@@ -1,6 +1,7 @@
 local tables = require("utils.table")
 local constants = require("keybinds.constants")
 local notification = require("utils.notification")
+local picker = require("utils.picker")
 
 local mainMod = constants.mainMod
 
@@ -104,6 +105,18 @@ hl.bind(mainMod .. " + SHIFT + T", function()
 	end
 end)
 
-hl.bind(mainMod .. " + T", function()
-	hl.exec_cmd("$HOME/.config/rofi/layouts.sh")
-end)
+--  ── Rofi layout picker ───────────────────────────────────────────────────
+--  label = shown in rofi, cmd = raw shell snippet run on selection.
+--  Built once at load; spawned async — never block bind callbacks with
+--  io.popen/os.execute (freezes the compositor).
+local layoutChoices = {
+	{ label = "🫠 Normal", cmd = [[hyprctl eval 'setGaps("normal")']] },
+	{ label = "🌲 Spacious", cmd = [[hyprctl eval 'setGaps("spacious")']] },
+	{ label = "🍔 Chunky", cmd = [[hyprctl eval 'setGaps("chunky")']] },
+	{ label = "🎞️ Cinema", cmd = [[hyprctl eval 'setGaps("cinema")']] },
+	{ label = "📽️ Cinema (tight)", cmd = [[hyprctl eval 'setGaps("cinema_tight")']] },
+	{ label = "🌐 Youtube", cmd = [[hyprctl eval 'setGaps("youtube")']] },
+	{ label = "🪼 Jellyfin", cmd = [[hyprctl eval 'setGaps("jellyfin")']] },
+}
+
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(picker.buildCmd("Choose layout", layoutChoices)))
