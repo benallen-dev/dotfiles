@@ -49,6 +49,7 @@ hyprland-qt-support
 hyprpaper
 hyprpolkitagent
 hyprshot
+hyprshutdown
 hyprsunset
 i3-wm
 i3blocks
