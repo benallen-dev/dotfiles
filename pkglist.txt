@@ -235,6 +235,7 @@ wev
 wf-recorder
 wget
 which
+wireless-regdb
 wiremix
 wireplumber
 wl-clipboard
