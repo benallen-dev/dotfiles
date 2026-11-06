@@ -58,6 +58,7 @@ i3status
 icoutils
 imagemagick
 inetutils
+iw
 iwd
 jq
 kcalc
