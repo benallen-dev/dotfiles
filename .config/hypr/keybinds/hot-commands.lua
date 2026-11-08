@@ -11,8 +11,8 @@ _G.archiveWallpaper = wallpaper.archiveCurrent
 local hotCmds = {
 	{ label = "🖼️ Archive Wallpaper", cmd = [[hyprctl eval 'archiveWallpaper()']] },
 	{ label = "🎛️ Streamcontroller", cmd = [[hyprctl eval 'hl.exec_cmd("/home/benallen/bin/streamcontroller")']] },
-	{ label = "🖥️ Shutdown", cmd = [[shutdown now]] },
-	{ label = "🖥️ Reboot", cmd = [[reboot]] },
+	{ label = "🖥️ Shutdown", cmd = [[hyprshutdown -t 'Shutting down' --post-cmd 'shutdown now']] },
+	{ label = "🖥️ Reboot", cmd = [[hyprshutdown -t 'Rebooting' --post-cmd 'reboot']] },
 }
 
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(picker.buildCmd("Hot commands", hotCmds)))
