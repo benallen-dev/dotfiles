@@ -6,8 +6,12 @@ local games = { "cs2", "factorio" }
 hl.on("window.active",
 	--- @param win HL.Window
 	function(win)
-		local isGame = tables.contains(games, win.initial_class)
+		if win == nil then
+			return
+		end
+
 		local currentSubmap = hl.get_current_submap() or ""
+		local isGame = tables.contains(games, win.initial_class)
 
 		if (isGame == true) and (currentSubmap ~= "gaming") then
 			hl.dispatch(hl.dsp.submap("gaming"))
